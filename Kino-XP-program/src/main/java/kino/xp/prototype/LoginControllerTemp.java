@@ -22,23 +22,26 @@ public class LoginControllerTemp {
 
         return "login";
     }
+
     @PostMapping("/login")
-    public String login(@RequestParam (value = "email") String email, @RequestParam(value = "password") String password, Model model)throws SQLException{
-        String [] login = Bruger.login(email, password);
+    public String login(@RequestParam(value = "email") String email, @RequestParam(value = "password") String password, Model model) throws SQLException {
+        String[] login = Bruger.login(email, password);
         this.email = login[0];
-        if(login[1].equals("0")){
-            return("menuAdmin");
+        if (login[1].equals("0")) {
+            return ("menuAdmin");
         }
-        if(login[1].equals("1")){
-            return("menuMedarbejder");
+        if (login[1].equals("1")) {
+            return ("menuMedarbejder");
         }
 
-        return"login";
+        return "login";
     }
 
-    @GetMapping("/deleteUser")
-    public String deleteUser(@RequestParam (value = "idFilm") String idFilm) throws SQLException {
-        .deleteUser(idFilm);
-        return "userList";
+    @GetMapping("/deleteFilm")
+    public String deleteFilm(@RequestParam(value = "idFilm") String idFilm) throws SQLException {
+        Film.deleteFilm(idFilm);
+        return "forside";
 
+    }
 }
+
