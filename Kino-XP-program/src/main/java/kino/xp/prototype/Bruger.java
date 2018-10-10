@@ -10,11 +10,12 @@ public class Bruger {
     private String efternavn;
     private int ID;
     private String password;
-
-
-
-    private static String email;
+    private String email;
     private int access;
+
+    public Bruger(){
+        this.email = "";
+    }
 
     public Bruger(String fornavn, String efternavn, int ID, String password, String email, int access) {
         this.fornavn = fornavn;
@@ -57,7 +58,7 @@ public class Bruger {
         this.password = password;
     }
 
-    public static String getEmail() {
+    public String getEmail() {
         return email;
     }
 

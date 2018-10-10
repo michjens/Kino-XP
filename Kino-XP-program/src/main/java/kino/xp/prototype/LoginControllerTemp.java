@@ -22,7 +22,7 @@ public class LoginControllerTemp {
 
         return "login";
     }
-    @PostMapping("/login")
+    /*@PostMapping("/login")
     public String login(@RequestParam (value = "email") String email, @RequestParam(value = "password") String password, Model model)throws SQLException{
         String [] login = Bruger.login(email, password);
         this.email = login[0];
@@ -34,6 +34,6 @@ public class LoginControllerTemp {
         }
 
         return"login";
-    }
+    }*/
 
 }

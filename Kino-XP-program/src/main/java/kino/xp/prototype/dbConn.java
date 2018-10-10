@@ -4,16 +4,14 @@
 
 package kino.xp.prototype;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class dbConn {
 
 
     static dbConn instance = new dbConn();
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DATABASE_URL = "jdbc:mysql://127.0.0.1:3306/pumpestationen?useSSL=false";
+    static final String DATABASE_URL = "jdbc:mysql://127.0.0.1:3306/KinoXP?useSSL=false";
     static Connection con;
 
     /**
@@ -37,6 +35,5 @@ public class dbConn {
     public static dbConn getInstance() {
         return instance;
     }
-
 
 }

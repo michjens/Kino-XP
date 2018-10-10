@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="OurStyle.css">
 </head>
 <body>
+<header>TEMP HEADER</header>
 <form method="post" th:action="@{/login}">
     <div id="login-wrap">
         <label>Email</label>
-        <input type="email" required="true">
+        <input type="email" required="true" th:field="${bruger.email}">
         <label>Kodeord</label>
-        <input type="password" required="true">
+        <input type="password" required="true" th:field="${bruger.password}">
 
         <input type="submit" value="Login">
     </div>
