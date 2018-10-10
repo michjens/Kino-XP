@@ -14,3 +14,19 @@
     padding: 8% 0 0;
     margin: auto;
 }
+
+h1 {
+    position: absolute;
+    top: 0;
+    right: 50%;
+}
+
+.menu{
+    width: 24%;
+}
+
+.logud{
+    position: absolute;
+    right: 0;
+    top: 10px;
+}

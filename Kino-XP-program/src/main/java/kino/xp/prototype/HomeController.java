@@ -10,4 +10,21 @@ public class HomeController {
     public String index(){
         return "forside";
         }
+
+    @GetMapping("/opretFilm")
+    public String opretFilm(){
+        return "opretFilm";
+    }
+
+    @GetMapping("/billetStatistik")
+    public String billetStatistik(){
+        return "billetStatistik";
+    }
+
+    @GetMapping("/redigerFilm")
+    public String redigerFilm(){
+        return "redigerFilm";
+    }
+
+
 }

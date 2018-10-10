@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Forside</title>
@@ -7,12 +7,12 @@
 </head>
 
 <div>
-    <img src="../static/LogoMakr_3EtZfT.png" height="100" width="300"/>
+    <img src="LogoMakr_3EtZfT.png" height="100" width="300" class="menu"/>
+    <button class="logud">log ud </button>
     <h1>Kino XP</h1>
-    <button>Opret film</button>
-    <button>Rediger film</button>
-    <button>Billet statistik</button>
-    <button>log ud </button>
+    <a th:href="opretFilm"><button class="menu">Opret film</button></a>
+    <a th:href="redigerFilm"><button class="menu">Rediger film</button></a>
+    <a th:href="billetStatistik"><button class="menu">Billet statistik</button></a>
 </div>
 
 <div class="film_oversigt">
@@ -24,7 +24,6 @@
         <p>aldersgranse = </p>
         <p>skuespiller = </p>
         <p>sal = </p>
-        <button>booking</button>
     </div>
 </div>
 
