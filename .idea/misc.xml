@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
+=======
+<<<<<<< HEAD
+=======
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="JS_1_8_5" />
+  </component>
+>>>>>>> 081896b541677dab93c3a115ad44a6317071b9ed
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" project-jdk-name="9.0" project-jdk-type="JavaSDK">
+<<<<<<< HEAD
+    <output url="file://$PROJECT_DIR$/out" />
+=======
+    <output url="file://$PROJECT_DIR$/classes" />
+>>>>>>> 081896b541677dab93c3a115ad44a6317071b9ed
+>>>>>>> 42be959d9be31c38f2dc699b988d806e223c47ca
   </component>
 </project>
