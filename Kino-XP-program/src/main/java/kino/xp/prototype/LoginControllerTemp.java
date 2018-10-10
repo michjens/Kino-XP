@@ -36,4 +36,9 @@ public class LoginControllerTemp {
         return"login";
     }
 
+    @GetMapping("/deleteUser")
+    public String deleteUser(@RequestParam (value = "idFilm") String idFilm) throws SQLException {
+        .deleteUser(idFilm);
+        return "userList";
+
 }
