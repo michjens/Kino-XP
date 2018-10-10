@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>KinoXP</title>
+    <link rel="stylesheet" href="OurStyle.css">
 </head>
 <body>
+<form method="post" th:action="@{/login}">
+    <div id="login-wrap">
+        <label>Email</label>
+        <input type="email" required="true">
+        <label>Kodeord</label>
+        <input type="password" required="true">
+
+        <input type="submit" value="Login">
+    </div>
+</form>
 
 </body>
 </html>

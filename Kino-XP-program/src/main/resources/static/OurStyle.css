@@ -1,3 +1,19 @@
 #login-wrap{
-    
+    width:600px;
+    margin:0 auto;
+}
+#login-wrap input[type="email"], input[type="password"]{
+    display:block;
+    margin:0 auto;
+    width:200px;
+}
+#login-wrap label{
+    display:block;
+    margin:0 auto;
+    width:200px;
+}
+#login-wrap input[type="submit"]{
+    width:200px;
+    display:block;
+    margin:0 auto;
 }
