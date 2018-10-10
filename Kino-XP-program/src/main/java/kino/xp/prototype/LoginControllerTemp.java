@@ -14,6 +14,8 @@ import java.util.ArrayList;
 @Controller
 public class LoginControllerTemp {
 
+    String email = "";
+
     @GetMapping("/")
     public String index() {
 
@@ -22,17 +24,15 @@ public class LoginControllerTemp {
     }
     @PostMapping("/login")
     public String login(@RequestParam (value = "email") String email, @RequestParam(value = "password") String password, Model model)throws SQLException{
-        String [] login = Utility.login(email, password);
+        String [] login = Bruger.login(email, password);
         this.email = login[0];
-        if(login[1].equals("student")){
+        if(login[1].equals("0")){
             return("menuAdmin");
         }
-        if(){
+        if(login[1].equals("1")){
             return("menuMedarbejder");
         }
-        if(login[1].equals("admin")){
-            return("userList");
-        }
+
         return"login";
     }
 

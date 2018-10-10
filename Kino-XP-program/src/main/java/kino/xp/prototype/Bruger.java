@@ -1,5 +1,6 @@
 package kino.xp.prototype;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,13 +10,18 @@ public class Bruger {
     private String efternavn;
     private int ID;
     private String password;
+
+
+
+    private static String email;
     private int access;
 
-    public Bruger(String fornavn, String efternavn, int ID, String password, int access) {
+    public Bruger(String fornavn, String efternavn, int ID, String password, String email, int access) {
         this.fornavn = fornavn;
         this.efternavn = efternavn;
         this.ID = ID;
         this.password = password;
+        this.email = email;
         this.access = access;
     }
 
@@ -51,6 +57,14 @@ public class Bruger {
         this.password = password;
     }
 
+    public static String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public int getAccess() {
         return access;
     }
@@ -59,11 +73,12 @@ public class Bruger {
         this.access = access;
     }
     public static String[] login(String username, String password) throws SQLException {
+        Connection con;
         String[] login = new String[2];
         con = dbConn.getInstance().createConnection();
         Statement s = null;
         s = con.createStatement();
-        ResultSet rs = s.executeQuery("SELECT email, password, Users.type FROM ap.Users");
+        ResultSet rs = s.executeQuery("SELECT email, password, Bruger.access FROM ap.Bruger");
         while (rs.next()) {
             if (username.toLowerCase().equals(rs.getString("email").toLowerCase()) && password.toLowerCase().equals(rs.getString("password").toLowerCase())) {
                 login[0] = rs.getString("email").toLowerCase();
