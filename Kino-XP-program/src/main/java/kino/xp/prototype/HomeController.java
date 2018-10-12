@@ -39,7 +39,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String forside(Model model) throws SQLException {
-        ArrayList<Film> films = new ArrayList<>();
         //ArrayList<Film> films = new ArrayList<>();
         ArrayList<Film> films = loadMovies();
         //Film film = new Film("https://dqj2xt0g8bn02.cloudfront.net/cdn/farfuture/EN4wI_6eHY1xCgm8CI78pAYp0k8f_EoTB4dhR9wsbwY/mtime:1521713019/files/styles/220_315_scale_crop/public/terrifier-2017-clown-horror-film-movie-poster.png?itok=smrTw0Zp", "name", 100, 15, "bob", "horror", 100);
