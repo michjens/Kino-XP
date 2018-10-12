@@ -18,11 +18,17 @@
     <div class="form" th:each="films: ${films}">
 
         <img th:src="${films.url_billede}" height="300" width="250">
+        <p>Titel:</p>
         <p th:text="${films.titel}"></p>
+        <p>Pris:</p>
         <p th:text="${films.pris}"></p>
+        <p>Aldersgrænse:</p>
         <p th:text="${films.aldersgranse}"></p>
+        <p>Skuespillere:</p>
         <p th:text="${films.skuespiller}"></p>
+        <p>Kategori:</p>
         <p th:text="${films.kategori}"></p>
+        <p>Tid:</p>
         <p th:text="${films.tid}"></p>
 
     </div>
