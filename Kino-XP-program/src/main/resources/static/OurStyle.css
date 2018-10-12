@@ -2,7 +2,7 @@
     padding:50px 0;
     width:250px;
     margin:0 auto;
-    border:4px solid aquamarine;
+    /*border:4px solid aquamarine;*/
 }
 #login-wrap input[type="email"], input[type="password"]{
     display:block;
@@ -21,7 +21,16 @@
     display:block;
     margin:0 auto;
     border-radius: 20px;
-    background-color:darkgreen;
-    color:yellow;
+    background-color:deepskyblue;
+    color:black;
     margin-top:10px;
+}
+.logoLogin{
+    display: block;
+    margin-left: auto;
+    margin-right: 525px;
+    width: 25%;
+}
+body{
+    background-image: url("cinema-film-reelseamlessly-loopable-motion-background_ee5l_krce__F0000.png");
 }

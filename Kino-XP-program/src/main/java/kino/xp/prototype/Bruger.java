@@ -73,6 +73,7 @@ public class Bruger {
     public void setAccess(int access) {
         this.access = access;
     }
+
     public static String[] login(String username, String password) throws SQLException {
         Connection con;
         String[] login = new String[2];
