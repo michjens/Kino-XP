@@ -15,12 +15,12 @@
     margin: auto;
 }
 
-h1 {
-    position: absolute;
-    top: 0;
-    right: 50%;
-    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
-}
+/*h1 {*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 50%;*/
+    /*font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;*/
+/*}*/
 
 .menu{
     width: 24%;
@@ -33,9 +33,13 @@ h1 {
 }
 
 button{
-    background-color: #d1d1d1;
+    background-color: deepskyblue;
     border: none;
-    color: #0a0500;
+    color: black;
     text-align: center;
+
+}
+body{
+    background-image: url("cinema-film-reelseamlessly-loopable-motion-background_ee5l_krce__F0000.png");
 }
 
