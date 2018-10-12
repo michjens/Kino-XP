@@ -29,6 +29,11 @@
     background-color: rgba(0, 0, 50, 0.4);
 }
 
+.logo{
+    width: 24%;
+
+}
+
 .logud{
     position: absolute;
     right: 0;
@@ -41,6 +46,8 @@ button{
     color: black;
     text-align: center;
     height: 40px;
+    font-family: Helvetica;
+    font-size: 15px;
 }
 
 body{
