@@ -13,13 +13,13 @@ public class Film {
     private String titel;
     private int pris;
     private int sal;
-    private int aldersgranse;
+    private String aldersgranse;
     private String skuespiller;
     private String kategori;
     private int tid;
     private ArrayList<Date> dates = new ArrayList<>();
 
-    public Film(String url_billede,String titel, int pris, int aldersgranse, String skuespiller, String kategori, ArrayList<Date> dates) {
+    public Film(String url_billede,String titel, int pris, String aldersgranse, String skuespiller, String kategori, ArrayList<Date> dates) {
         this.url_billede = url_billede;
         this.titel = titel;
         this.pris = pris;
@@ -29,7 +29,7 @@ public class Film {
         this.dates = dates;
     }
 
-    public Film(String url_billede, String titel, int pris, int aldersgranse, String skuespiller, String kategori, int tid) {
+    public Film(String url_billede, String titel, int pris, String aldersgranse, String skuespiller, String kategori, int tid) {
         this.url_billede = url_billede;
         this.titel = titel;
         this.pris = pris;
@@ -39,7 +39,7 @@ public class Film {
         this.tid = tid;
     }
 
-    public Film(String titel, int pris, int aldersgranse, String skuespiller) {
+    public Film(String titel, int pris, String aldersgranse, String skuespiller) {
         this.titel = titel;
         this.pris = pris;
         this.aldersgranse = aldersgranse;
@@ -89,11 +89,11 @@ public class Film {
         this.sal = sal;
     }
 
-    public int getAldersgranse() {
+    public String getAldersgranse() {
         return aldersgranse;
     }
 
-    public void setAldersgranse(int aldersgranse) {
+    public void setAldersgranse(String aldersgranse) {
         this.aldersgranse = aldersgranse;
     }
 

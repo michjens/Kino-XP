@@ -11,7 +11,7 @@ public class dbConn {
 
     static dbConn instance = new dbConn();
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DATABASE_URL = "jdbc:mysql://127.0.0.1:3306/KinoXP?useSSL=false";
+    static final String DATABASE_URL = "jdbc:mysql://data.pw:3306/KinoXP?useSSL=false";
     static Connection con;
 
     /**
@@ -23,7 +23,7 @@ public class dbConn {
         con = null;
         try {
             Class.forName(JDBC_DRIVER);
-            return con = DriverManager.getConnection(DATABASE_URL, "root", "rootpw");
+            return con = DriverManager.getConnection(DATABASE_URL, "User", "User");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
