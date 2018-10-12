@@ -25,6 +25,9 @@
 .menu{
     width: 24%;
 }
+.menu:hover{
+    background-color: rgba(0, 0, 50, 0.4);
+}
 
 .logud{
     position: absolute;
@@ -37,9 +40,12 @@ button{
     border: none;
     color: black;
     text-align: center;
-
+    height: 40px;
 }
+
 body{
     background-image: url("cinema-film-reelseamlessly-loopable-motion-background_ee5l_krce__F0000.png");
+    background-color: rgba(50, 50, 50, 0.4);
+    background-blend-mode: screen;
 }
 
