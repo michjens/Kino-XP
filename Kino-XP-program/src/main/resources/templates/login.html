@@ -15,6 +15,7 @@
         <input type="password" required="true" th:field="${bruger.password}">
 
         <input type="submit" value="Login">
+        <p th:if="${!error.isEmpty()}" class="error" th:text="${error}"></p>
     </div>
 </form>
 

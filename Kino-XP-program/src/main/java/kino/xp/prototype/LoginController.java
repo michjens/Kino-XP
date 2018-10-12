@@ -16,30 +16,37 @@ import java.sql.SQLException;
 @Controller
 public class LoginController {
 
+    String error = "";
+
     @GetMapping("/login")
-    public String login(Model model){
+    public String login(Model model) {
 
         model.addAttribute("bruger", new Bruger());
+        model.addAttribute("error", error);
+
+        error = "";
 
         return "login";
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute Bruger bruger, HttpServletRequest request){
+    public String login(@ModelAttribute Bruger bruger, HttpServletRequest request) {
 
         Bruger eksisterendeBruger = getBrugerFraDB(bruger.getEmail());
 
-        if(!eksisterendeBruger.getEmail().isEmpty()){
-            if(eksisterendeBruger.getPassword().equals(bruger.getPassword())){
+        if (!eksisterendeBruger.getEmail().isEmpty()) {
+            if (eksisterendeBruger.getPassword().equals(bruger.getPassword())) {
                 HttpSession session = request.getSession();
                 session.setAttribute("bruger", eksisterendeBruger);
-                return "redirect:/index";
+                return "redirect:/forside";
             }
         }
+        error = "Ugyldigt login";
 
         return "redirect:/login";
     }
-    public Bruger getBrugerFraDB(String email){
+
+    public Bruger getBrugerFraDB(String email) {
         dbConn db = dbConn.getInstance();
         Connection con = db.createConnection();
         PreparedStatement ps = null;
