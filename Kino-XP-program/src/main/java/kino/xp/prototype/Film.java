@@ -29,6 +29,22 @@ public class Film {
         this.dates = dates;
     }
 
+    public Film(String url_billede, String titel, int pris, int aldersgranse, String skuespiller, String kategori) {
+        this.url_billede = url_billede;
+        this.titel = titel;
+        this.pris = pris;
+        this.aldersgranse = aldersgranse;
+        this.skuespiller = skuespiller;
+        this.kategori = kategori;
+    }
+
+    public Film(String titel, int pris, int aldersgranse, String skuespiller) {
+        this.titel = titel;
+        this.pris = pris;
+        this.aldersgranse = aldersgranse;
+        this.skuespiller = skuespiller;
+    }
+
     public String getUrl_billede() {
         return url_billede;
     }
