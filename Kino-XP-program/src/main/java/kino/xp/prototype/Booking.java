@@ -8,14 +8,14 @@ import java.sql.Statement;
 public class Booking {
     private String fornavn;
     private String efternavn;
-    private long telefon;
+    private String telefon;
     private String email;
     private boolean reklamer;
 
     static Connection con;
 
 
-    public Booking(String fornavn, String efternavn, long telefon, String email, boolean reklamer) {
+    public Booking(String fornavn, String efternavn, String telefon, String email, boolean reklamer) {
         this.fornavn = fornavn;
         this.efternavn = efternavn;
         this.telefon = telefon;
@@ -42,11 +42,11 @@ public class Booking {
         this.efternavn = efternavn;
     }
 
-    public long getTelefon() {
+    public String getTelefon() {
         return telefon;
     }
 
-    public void setTelefon(long telefon) {
+    public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
 
@@ -68,12 +68,14 @@ public class Booking {
 
     public static void opretBooking(Booking booking){
         con = dbConn.getInstance().createConnection();
+        Statement s = null;
         try{
-            PreparedStatement stmtKunde = con.prepareStatement("INSERT INTO Kunder VALUES (?,?,?,?,?)");
+            s = con.createStatement();
+            PreparedStatement stmtKunde = con.prepareStatement("INSERT INTO Kunder (Fornavn, Efternavn,Email,Tlf,Reklame)VALUES (?,?,?,?,?)");
             stmtKunde.setString(1,booking.getFornavn());
             stmtKunde.setString(2,booking.getEfternavn());
             stmtKunde.setString(3,booking.getEmail());
-            stmtKunde.setLong(4,booking.getTelefon());
+            stmtKunde.setString(4,booking.getTelefon());
             if(booking.isReklamer()) {
                 stmtKunde.setInt(5, 1);
             }else {

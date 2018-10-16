@@ -24,7 +24,7 @@ public class BookingController {
     @PostMapping("/opretBooking")
     public String opretBooking(@ModelAttribute Booking booking) {
         Booking.opretBooking(booking);
-        return "redirect:/forside";
+        return "redirect:/";
     }
 
 
