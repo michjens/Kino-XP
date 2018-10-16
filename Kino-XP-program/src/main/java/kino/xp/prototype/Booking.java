@@ -18,9 +18,9 @@ public class Booking {
 
     static Connection con;
 
-    public Booking(int brugerId, int idbooking, int seats, int idKunde, int idVisning) {
+    public Booking(int brugerId, int idBooking, int seats, int idKunde, int idVisning) {
         this.brugerId = brugerId;
-        this.idBooking = idbooking;
+        this.idBooking = idBooking;
         this.seats = seats;
         this.idKunde = idKunde;
         this.idVisning = idVisning;
@@ -90,6 +90,38 @@ public class Booking {
         this.brugerId = brugerId;
     }
 
+    public int getIdBooking() {
+        return idBooking;
+    }
+
+    public void setIdBooking(int idBooking) {
+        this.idBooking = idBooking;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+
+    public int getIdKunde() {
+        return idKunde;
+    }
+
+    public void setIdKunde(int idKunde) {
+        this.idKunde = idKunde;
+    }
+
+    public int getIdVisning() {
+        return idVisning;
+    }
+
+    public void setIdVisning(int idVisning) {
+        this.idVisning = idVisning;
+    }
+
     public static void opretBooking(Booking booking){
         con = dbConn.getInstance().createConnection();
         try{
@@ -140,5 +172,16 @@ public class Booking {
             bookingArrayList.add(new Booking(rs.getInt(2),rs.getInt(1),rs.getInt(3), rs.getInt(4), rs.getInt(5)));
         }
         return  bookingArrayList;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "brugerId=" + brugerId +
+                ", idBooking=" + idBooking +
+                ", seats=" + seats +
+                ", idKunde=" + idKunde +
+                ", idVisning=" + idVisning +
+                '}';
     }
 }

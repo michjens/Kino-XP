@@ -21,9 +21,9 @@
     <tr th:each="booking: ${booking}">
         <td th:text="${booking.idBooking}"></td>
         <td th:text="${booking.brugerId}"></td>
+        <td th:text="${booking.seats}"></td>
         <td th:text="${booking.idKunde}"></td>
         <td th:text="${booking.idVisning}"></td>
-        <td th:text="${booking.seats}"></td>
         <td>
             <a th:href="@{'/redigerBooking'}+${booking.idBooking}"><button type="button" class="btn">Rediger</button></a>
             <a th:href="@{'/sletBooking'}+${booking.idBooking}"><button type="button" class="btn">Slet</button></a>
