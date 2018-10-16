@@ -1,10 +1,7 @@
 package kino.xp.prototype;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -17,6 +14,16 @@ public class Film {
     private String skuespiller;
     private String kategori;
     private int tid;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
     private ArrayList<Date> dates = new ArrayList<>();
     static Connection con;
 
@@ -151,6 +158,45 @@ public class Film {
 
         }
 
+    }
+
+    public static Film loadEditFilm(String titel){
+        con = dbConn.getInstance().createConnection();
+        ResultSet rs;
+        String selectSQL = "SELECT * FROM Film WHERE Titel = ?";
+        Film f = new Film();
+        try {
+            PreparedStatement stmt = con.prepareStatement(selectSQL);
+            stmt.setString(1, titel);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                f.setId(rs.getInt("idFilm"));
+                f.setTitel(titel);
+                f.setSkuespiller(rs.getString("Skuespiller"));
+                f.setPris(rs.getInt("Pris"));
+                f.setAldersgranse(rs.getString("Aldersgrænse"));
+                f.setTid(rs.getInt("Tid"));
+                f.setUrl_billede(rs.getString("FilmPlakat"));
+                f.setKategori(rs.getString("Kategori"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return f;
+    }
+    public static void editFilm(Film film) throws SQLException {
+        con = dbConn.getInstance().createConnection();
+        PreparedStatement stmt = con.prepareStatement("UPDATE Film SET titel = (?), Skuespiller = (?), Pris = (?), Aldersgrænse = (?), Tid = (?), FilmPlakat = (?), Kategori = (?) WHERE id = (?)");
+        stmt.setString(1, film.getTitel());
+        stmt.setString(2, film.getSkuespiller());
+        stmt.setInt(3, film.getPris());
+        stmt.setString(4, film.getAldersgranse());
+        stmt.setInt(5, film.getTid());
+        stmt.setString(6, film.getUrl_billede());
+        stmt.setString(7, film.getKategori());
+        stmt.setInt(8, film.getId());
+        stmt.executeUpdate();
     }
 }
 

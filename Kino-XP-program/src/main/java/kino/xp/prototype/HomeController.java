@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -41,9 +42,19 @@ public class HomeController {
     }
 
     @GetMapping("/redigerFilm")
-    public String redigerFilm(){
+    public String redigerFilm(@RequestParam (value = "titel") String titel, Model model) throws Exception{
+        Film f = Film.loadEditFilm(titel);
+        model.addAttribute("Film", f);
         return "redigerFilm";
     }
+
+    @PostMapping("/redigerFilm")
+    public String editFilm(@ModelAttribute Film film) throws Exception{
+        Film.editFilm(film);
+        return "redirect:/";
+    }
+
+
 
     @GetMapping("/")
     public String forside(Model model) throws SQLException {
