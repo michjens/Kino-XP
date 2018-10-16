@@ -13,18 +13,19 @@ import javax.servlet.http.HttpSession;
 public class BookingController {
 
     @GetMapping("/opretBooking")
-    public String opretBooking(Model model, HttpServletRequest request, @ModelAttribute Bruger bruger) {
+    public String opretBooking(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        bruger = (Bruger) session.getAttribute("bruger");
+        Bruger bruger = (Bruger) session.getAttribute("bruger");
         model.addAttribute("bruger", bruger);
         model.addAttribute("booking", new Booking());
-        return "opretBoking";
+        return "opretBooking";
     }
 
-    @PostMapping
+    @PostMapping("/opretBooking")
     public String opretBooking(@ModelAttribute Booking booking) {
-
+        Booking.opretBooking(booking);
         return "redirect:/forside";
     }
+
 
 }

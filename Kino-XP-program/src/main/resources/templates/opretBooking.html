@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <h1>Opret booking</h1>
 
 <form method="post" th:action="@{/opretBooking}">
-
     <label>Fornavn: </label>
     <input type="text" th:field="${booking.fornavn}">
     <p></p>
@@ -26,7 +24,9 @@
     <p></p>
     <label>Betjent af: </label>
     <input type="text" th:field="${bruger.fornavn}" readonly="true">
-    
+    <p></p>
+    <button type="submit", value="send">Godkend</button>
+    <a href="/"><button>Annullere</button></a>
 
 
 </form>
