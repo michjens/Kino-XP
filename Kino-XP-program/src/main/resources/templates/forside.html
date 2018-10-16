@@ -20,7 +20,8 @@
     <div class="form" th:each="films: ${films}">
 
         <img th:src="${films.url_billede}" height="300" width="250">
-
+        <a th:href="@{'/editFilm?titel='+${films.titel}}">
+        <button class="button">Rediger</button></a>
         <p><label>Titel: </label><label th:text="${films.titel}"></label></p>
         <p><label>Pris: </label><label th:text="${films.pris}"></label></p>
         <p><label>Aldersgrænse: </label><label th:text="${films.aldersgranse}"></label></p>
