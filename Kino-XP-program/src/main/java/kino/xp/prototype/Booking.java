@@ -10,6 +10,7 @@ public class Booking {
     private boolean reklamer;
     private int brugerId;
 
+
     static Connection con;
 
     public Booking(String kundeFornavn, String efternavn, String telefon, String email, boolean reklamer, int brugerId) {
@@ -112,5 +113,15 @@ public class Booking {
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    // Lav slet booking fra oversigt funktion
+    public static void sletBooking(Booking booking){
+
+    }
+
+    // Lav rediger booking fra oversigt funktion
+    public static void redigerBooking(Booking booking){
+
     }
 }
