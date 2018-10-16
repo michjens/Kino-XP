@@ -171,6 +171,7 @@ public class Film {
             rs = stmt.executeQuery();
             while(rs.next()){
                 f.setId(rs.getInt("idFilm"));
+                System.out.println(f.getId());
                 f.setTitel(titel);
                 f.setSkuespiller(rs.getString("Skuespiller"));
                 f.setPris(rs.getInt("Pris"));
@@ -187,7 +188,12 @@ public class Film {
     }
     public static void editFilm(Film film) throws SQLException {
         con = dbConn.getInstance().createConnection();
-        PreparedStatement stmt = con.prepareStatement("UPDATE Film SET titel = (?), Skuespiller = (?), Pris = (?), Aldersgrænse = (?), Tid = (?), FilmPlakat = (?), Kategori = (?) WHERE id = (?)");
+        Statement s = con.createStatement();
+        System.out.println(film.getId());
+        //s.executeQuery("SET SQL_SAFE_UPDATES=0");
+        PreparedStatement stmt = con.prepareStatement("UPDATE KinoXP.Film SET titel = ?, Skuespiller = ?, Pris = ?, Aldersgrænse = ?, Tid = ?, FilmPlakat = ?, Kategori = ? WHERE idFilm = ?");
+        //s.executeQuery("SET SQL_SAFE_UPDATES=1");
+        //PreparedStatement stmt = con.prepareStatement("INSERT INTO KinoXP.Film (titel, Skuespiller, Pris, Aldersgrænse, Tid, FilmPlakat, Kategori) VALUES (?,?,?,?,?,?,?)");
         stmt.setString(1, film.getTitel());
         stmt.setString(2, film.getSkuespiller());
         stmt.setInt(3, film.getPris());
