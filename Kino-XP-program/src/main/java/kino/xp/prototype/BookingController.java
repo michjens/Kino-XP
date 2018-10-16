@@ -18,11 +18,15 @@ public class BookingController {
         Bruger bruger = (Bruger) session.getAttribute("bruger");
         model.addAttribute("bruger", bruger);
         model.addAttribute("booking", new Booking());
+        System.out.println(bruger.getID());
         return "opretBooking";
     }
 
     @PostMapping("/opretBooking")
-    public String opretBooking(@ModelAttribute Booking booking) {
+    public String opretBooking(@ModelAttribute Booking booking, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Bruger bruger = (Bruger) session.getAttribute("bruger");
+        booking.setBrugerId(bruger.getID());
         Booking.opretBooking(booking);
         return "redirect:/";
     }
