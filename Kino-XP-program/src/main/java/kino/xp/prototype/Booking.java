@@ -1,6 +1,7 @@
 package kino.xp.prototype;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Booking {
     private String kundeFornavn;
@@ -125,5 +126,19 @@ public class Booking {
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public static ArrayList<Booking> loadBooking() throws SQLException {
+        ArrayList<Booking> bookingArrayList = new ArrayList<>();
+
+        con = dbConn.getInstance().createConnection();
+        Statement s = null;
+        s = con.createStatement();
+
+        ResultSet rs = s.executeQuery("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking");
+        while (rs.next()){
+            bookingArrayList.add(new Booking(rs.getInt(2),rs.getInt(1),rs.getInt(3), rs.getInt(4), rs.getInt(5)));
+        }
+        return  bookingArrayList;
     }
 }

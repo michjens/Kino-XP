@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.lang.reflect.Array;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 @Controller
 public class BookingController {
@@ -32,10 +35,11 @@ public class BookingController {
     }
 
     @GetMapping("/bookingOversigt")
-    public String bookingOversigt(Model model){
-
+    public String bookingOversigt(Model model) throws SQLException {
+        model.addAttribute("booking", Booking.loadBooking());
         return "bookingOversigt";
     }
+
 
 
 }
