@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>Visninger</title>
+    <!--  <link rel="stylesheet" type="text/css" href="css.css"/> -->
+</head>
+<body>
+<div class="login-page">
+    <div class="form">
+        <h1>Visninger</h1>
+
+        <form method="Post" th:action="@{/filmVisninger}" class="login-form">
+
+            <label>Dato:</label>
+            <input type="datetime-local" th:field="${visning.date}" required="true" /></br></br>
+            <label>Sal:</label>
+            <select th:field="${visning.sal}" required="true" >
+                <option th:value="1">Sal 1</option>
+                <option th:value="2">Sal 2</option>
+            </select>
+            <!--<label th:value=""-->
+
+
+
+            <input style="background: #b2b2b2" type="submit" value="Send" />
+
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
