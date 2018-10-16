@@ -187,7 +187,8 @@ public class Film {
     }
     public static void editFilm(Film film) throws SQLException {
         con = dbConn.getInstance().createConnection();
-        PreparedStatement stmt = con.prepareStatement("UPDATE Film SET titel = (?), Skuespiller = (?), Pris = (?), Aldersgrænse = (?), Tid = (?), FilmPlakat = (?), Kategori = (?) WHERE id = (?)");
+        PreparedStatement stmt = con.prepareStatement("UPDATE KinoXP.Film SET titel = (?), Skuespiller = (?), Pris = (?), Aldersgrænse = (?), Tid = (?), FilmPlakat = (?), Kategori = (?) WHERE idFilm = (?)");
+        //PreparedStatement stmt = con.prepareStatement("INSERT INTO KinoXP.Film (titel, Skuespiller, Pris, Aldersgrænse, Tid, FilmPlakat, Kategori) VALUES (?,?,?,?,?,?,?)");
         stmt.setString(1, film.getTitel());
         stmt.setString(2, film.getSkuespiller());
         stmt.setInt(3, film.getPris());
@@ -195,7 +196,7 @@ public class Film {
         stmt.setInt(5, film.getTid());
         stmt.setString(6, film.getUrl_billede());
         stmt.setString(7, film.getKategori());
-        stmt.setInt(8, film.getId());
+    //    stmt.setInt(8, film.getId());
         stmt.executeUpdate();
     }
 }
