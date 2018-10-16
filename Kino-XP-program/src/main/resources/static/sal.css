@@ -1,6 +1,7 @@
 body{
     overflow:hidden;
-    background-color: gray;
+    background: rgba(50, 50, 50, 1) url("cinema-film-reelseamlessly-loopable-motion-background_ee5l_krce__F0000.png");
+    background-blend-mode: color-burn;
 }
 #theater{
     width:880px;
@@ -36,14 +37,14 @@ body{
     width:100px;
     height:30px;
     margin-left: 397px;
-    margin-top:76px;
+    margin-top:80px;
     background-color:black;
     overflow:hidden;
-    background-color: whitesmoke;
+    background-color: rgb(245, 157, 155);
     box-shadow:
-            0 0 60px 5px #fff897,
-            0 0 100px 10px #fff266,
-            0 0 140px 20px #fff02e;
+            0 0 60px 5px #ff8684,
+            0 0 100px 10px #ff514c,
+            0 0 140px 20px #ff3837;
 }
 
 .row {
