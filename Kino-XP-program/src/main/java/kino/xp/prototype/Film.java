@@ -140,10 +140,10 @@ public class Film {
 
     public static void createFilm(Film film) {
         con = dbConn.getInstance().createConnection();
-        Statement s = null;
+        //Statement s = null;
         try {
-            s = con.createStatement();
-            PreparedStatement stmtFilm = con.prepareStatement("INSERT INTO Film VALUES (?,?,?,?,?,?,?)");
+            //s = con.createStatement();
+            PreparedStatement stmtFilm = con.prepareStatement("INSERT INTO KinoXP.Film (titel, Skuespiller, Pris, Aldersgrænse, Tid, FilmPlakat, Kategori) VALUES (?,?,?,?,?,?,?)");
             stmtFilm.setString(1, film.getTitel());
             stmtFilm.setString(2, film.getSkuespiller());
             stmtFilm.setInt(3, film.getPris());
@@ -163,7 +163,7 @@ public class Film {
     public static Film loadEditFilm(String titel){
         con = dbConn.getInstance().createConnection();
         ResultSet rs;
-        String selectSQL = "SELECT * FROM Film WHERE Titel = ?";
+        String selectSQL = "SELECT * FROM KinoXP.Film WHERE Titel = ?";
         Film f = new Film();
         try {
             PreparedStatement stmt = con.prepareStatement(selectSQL);
