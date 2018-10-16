@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h>Booking Oversigt</h>
+
+<table>
+    <thead>
+    <tr>
+        <th>idBooking</th>
+        <th>isBruger</th>
+        <th>seats</th>
+        <th>idKunder</th>
+        <th>idVisning</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="booking: ${booking}">
+        <td th:text="${booking.idBooking}"></td>
+        <td th:text="${booking.brugerId}"></td>
+        <td th:text="${booking.idKunde}"></td>
+        <td th:text="${booking.idVisning}"></td>
+        <td th:text="${booking.seats}"></td>
+        <td>
+            <a th:href="@{'/redigerBooking'}+${booking.idBooking}"><button type="button" class="btn">Rediger</button></a>
+            <a th:href="@{'/sletBooking'}+${booking.idBooking}"><button type="button" class="btn">Slet</button></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

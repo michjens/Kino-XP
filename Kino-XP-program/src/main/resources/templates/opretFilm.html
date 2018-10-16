@@ -25,7 +25,14 @@
             <label>Film plakat:</label>
             <input type="text" th:field="${Film.url_billede}" required="true" /></br></br>
             <label>Kategori</label>
-            <input type="text" th:field="${Film.kategori}" required="true" /></br></br>
+            <select th:field="${Film.kategori}" required="true" >
+                <option th:value="Gyser">Gyser</option>
+                <option th:value="Action">Action</option>
+                <option th:value="Drama">Drama</option>
+                <option th:value="Komedie">Komedie</option>
+                <option th:value="Sci-fi">Sci-fi</option>
+            </select>
+
 
 
             <input style="background: #b2b2b2" type="submit" value="Send" />

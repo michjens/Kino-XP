@@ -1,37 +1,53 @@
 package kino.xp.prototype;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class Booking {
-    private String fornavn;
+    private String kundeFornavn;
     private String efternavn;
-    private long telefon;
+    private String telefon;
     private String email;
     private boolean reklamer;
+    private int brugerId;
+
+    private int idBooking;
+    private int seats;
+    private int idKunde;
+    private int idVisning;
 
     static Connection con;
 
+    public Booking(int brugerId, int idbooking, int seats, int idKunde, int idVisning) {
+        this.brugerId = brugerId;
+        this.idBooking = idbooking;
+        this.seats = seats;
+        this.idKunde = idKunde;
+        this.idVisning = idVisning;
+    }
 
-    public Booking(String fornavn, String efternavn, long telefon, String email, boolean reklamer) {
-        this.fornavn = fornavn;
+    public Booking(String kundeFornavn, String efternavn, String telefon, String email, boolean reklamer, int brugerId) {
+        this.kundeFornavn = kundeFornavn;
         this.efternavn = efternavn;
         this.telefon = telefon;
         this.email = email;
         this.reklamer = reklamer;
+        this.brugerId = brugerId;
     }
 
     public Booking() {
     }
 
-    public String getFornavn() {
-        return fornavn;
+    public Booking(int brugerId) {
+        this.brugerId = brugerId;
     }
 
-    public void setFornavn(String fornavn) {
-        this.fornavn = fornavn;
+    public String getKundeFornavn() {
+        return kundeFornavn;
+    }
+
+    public void setKundeFornavn(String fornavn) {
+        this.kundeFornavn = fornavn;
     }
 
     public String getEfternavn() {
@@ -42,11 +58,11 @@ public class Booking {
         this.efternavn = efternavn;
     }
 
-    public long getTelefon() {
+    public String getTelefon() {
         return telefon;
     }
 
-    public void setTelefon(long telefon) {
+    public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
 
@@ -66,14 +82,23 @@ public class Booking {
         this.reklamer = reklamer;
     }
 
+    public int getBrugerId() {
+        return brugerId;
+    }
+
+    public void setBrugerId(int brugerId) {
+        this.brugerId = brugerId;
+    }
+
     public static void opretBooking(Booking booking){
         con = dbConn.getInstance().createConnection();
         try{
-            PreparedStatement stmtKunde = con.prepareStatement("INSERT INTO Kunder VALUES (?,?,?,?,?)");
-            stmtKunde.setString(1,booking.getFornavn());
+            PreparedStatement stmtKunde = con.prepareStatement("INSERT INTO Kunder (Fornavn, Efternavn, Email, Tlf, Reklame) VALUES (?,?,?,?,?)");
+            stmtKunde.setString(1,booking.getKundeFornavn());
             stmtKunde.setString(2,booking.getEfternavn());
             stmtKunde.setString(3,booking.getEmail());
-            stmtKunde.setLong(4,booking.getTelefon());
+            stmtKunde.setString(4,booking.getTelefon());
+
             if(booking.isReklamer()) {
                 stmtKunde.setInt(5, 1);
             }else {
@@ -81,8 +106,39 @@ public class Booking {
             }
             stmtKunde.executeUpdate();
 
+            PreparedStatement ps = con.prepareStatement("SELECT IdKunder" + "  FROM Kunder" + " ORDER BY IdKunder DESC LIMIT 1;");
+            ResultSet rs = ps.executeQuery();
+
+            // Tilføj Antal sæder / pris + idVisning når dette er implementeret
+            PreparedStatement stmtBooking = con.prepareStatement("INSERT INTO Booking (idBruger, Seats, idKunder, idVisning) VALUES (?,?,?,?)");
+            if (rs.next()) {
+                System.out.println(booking.getBrugerId());
+                System.out.println(rs.getInt("idKunder"));
+                stmtBooking.setInt(1, booking.getBrugerId());
+                // Sæt sædeantal ind på x' plads
+                stmtBooking.setInt(2, 2);
+                stmtBooking.setInt(3, rs.getInt("idKunder"));
+                // Sæt idVisning ind på x' plads
+                stmtBooking.setInt(4, 1);
+                stmtBooking.executeUpdate();
+            }
+
         }catch (SQLException e){
             e.printStackTrace();
         }
+    }
+
+    public static ArrayList<Booking> loadBooking() throws SQLException {
+        ArrayList<Booking> bookingArrayList = new ArrayList<>();
+
+        con = dbConn.getInstance().createConnection();
+        Statement s = null;
+        s = con.createStatement();
+
+        ResultSet rs = s.executeQuery("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking");
+        while (rs.next()){
+            bookingArrayList.add(new Booking(rs.getInt(2),rs.getInt(1),rs.getInt(3), rs.getInt(4), rs.getInt(5)));
+        }
+        return  bookingArrayList;
     }
 }
