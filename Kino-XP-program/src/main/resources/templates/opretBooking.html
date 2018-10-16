@@ -8,7 +8,7 @@
 
 <form method="post" th:action="@{/opretBooking}">
     <label>Fornavn: </label>
-    <input type="text" th:field="${booking.fornavn}">
+    <input type="text" th:field="${booking.kundeFornavn}">
     <p></p>
     <label>Efternavn: </label>
     <input type="text" th:field="${booking.efternavn}">
@@ -25,7 +25,7 @@
     <label>Betjent af: </label>
     <input type="text" th:field="${bruger.fornavn}" readonly="true">
     <p></p>
-    <button type="submit", value="send">Godkend</button>
+    <button type="submit" value="send">Godkend</button>
     <a href="/"><button>Annullere</button></a>
 
 

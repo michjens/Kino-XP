@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Booking {
-    private String fornavn;
+    private String kundeFornavn;
     private String efternavn;
     private String telefon;
     private String email;
@@ -15,8 +15,8 @@ public class Booking {
     static Connection con;
 
 
-    public Booking(String fornavn, String efternavn, String telefon, String email, boolean reklamer) {
-        this.fornavn = fornavn;
+    public Booking(String kundeFornavn, String efternavn, String telefon, String email, boolean reklamer) {
+        this.kundeFornavn = kundeFornavn;
         this.efternavn = efternavn;
         this.telefon = telefon;
         this.email = email;
@@ -26,12 +26,12 @@ public class Booking {
     public Booking() {
     }
 
-    public String getFornavn() {
-        return fornavn;
+    public String getKundeFornavn() {
+        return kundeFornavn;
     }
 
-    public void setFornavn(String fornavn) {
-        this.fornavn = fornavn;
+    public void setKundeFornavn(String fornavn) {
+        this.kundeFornavn = fornavn;
     }
 
     public String getEfternavn() {
@@ -68,11 +68,10 @@ public class Booking {
 
     public static void opretBooking(Booking booking){
         con = dbConn.getInstance().createConnection();
-        Statement s = null;
         try{
-            s = con.createStatement();
-            PreparedStatement stmtKunde = con.prepareStatement("INSERT INTO Kunder (Fornavn, Efternavn,Email,Tlf,Reklame)VALUES (?,?,?,?,?)");
-            stmtKunde.setString(1,booking.getFornavn());
+            PreparedStatement stmtKunde = con.prepareStatement("INSERT INTO Kunder (Fornavn, Efternavn, Email, Tlf, Reklame) VALUES (?,?,?,?,?)");
+            System.out.println(booking.getKundeFornavn());
+            stmtKunde.setString(1,booking.getKundeFornavn());
             stmtKunde.setString(2,booking.getEfternavn());
             stmtKunde.setString(3,booking.getEmail());
             stmtKunde.setString(4,booking.getTelefon());
