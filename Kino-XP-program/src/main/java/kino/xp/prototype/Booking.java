@@ -10,7 +10,20 @@ public class Booking {
     private boolean reklamer;
     private int brugerId;
 
+    private int idBooking;
+    private int seats;
+    private int idKunde;
+    private int idVisning;
+
     static Connection con;
+
+    public Booking(int brugerId, int idbooking, int seats, int idKunde, int idVisning) {
+        this.brugerId = brugerId;
+        this.idBooking = idbooking;
+        this.seats = seats;
+        this.idKunde = idKunde;
+        this.idVisning = idVisning;
+    }
 
     public Booking(String kundeFornavn, String efternavn, String telefon, String email, boolean reklamer, int brugerId) {
         this.kundeFornavn = kundeFornavn;

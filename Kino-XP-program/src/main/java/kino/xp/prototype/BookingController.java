@@ -31,5 +31,11 @@ public class BookingController {
         return "redirect:/";
     }
 
+    @GetMapping("/bookingOversigt")
+    public String bookingOversigt(Model model){
+
+        return "bookingOversigt";
+    }
+
 
 }
