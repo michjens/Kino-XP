@@ -76,4 +76,5 @@ public class LoginController {
         }
         return bruger;
     }
+
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -23,8 +24,15 @@ public class HomeController {
         //}
 
     @GetMapping("/opretFilm")
-    public String opretFilm(){
+    public String opretFilm(Model model){
+        model.addAttribute("Film", new Film());
         return "opretFilm";
+    }
+
+    @PostMapping("/opretFilm")
+    public String opretFilm(@ModelAttribute Film film){
+        Film.createFilm(film);
+        return "redirect:/";
     }
 
     @GetMapping("/billetStatistik")

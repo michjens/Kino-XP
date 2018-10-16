@@ -1,10 +1,10 @@
 package kino.xp.prototype;
 
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,8 +18,9 @@ public class Film {
     private String kategori;
     private int tid;
     private ArrayList<Date> dates = new ArrayList<>();
+    static Connection con;
 
-    public Film(String url_billede,String titel, int pris, String aldersgranse, String skuespiller, String kategori, ArrayList<Date> dates) {
+    public Film(String url_billede, String titel, int pris, String aldersgranse, String skuespiller, String kategori, ArrayList<Date> dates) {
         this.url_billede = url_billede;
         this.titel = titel;
         this.pris = pris;
@@ -122,11 +123,33 @@ public class Film {
     }
 
     public static void deleteFilm(String inputEmail) throws SQLException {
-        Connection con;
+
         con = dbConn.getInstance().createConnection();
         PreparedStatement stmtFilm = con.prepareStatement("DELETE FROM Film WHERE idFilm = (?)");
         stmtFilm.setString(1, inputEmail);
         stmtFilm.executeUpdate();
+
+    }
+
+    public static void createFilm(Film film) {
+        con = dbConn.getInstance().createConnection();
+        Statement s = null;
+        try {
+            s = con.createStatement();
+            PreparedStatement stmtFilm = con.prepareStatement("INSERT INTO Film VALUES (?,?,?,?,?,?,?)");
+            stmtFilm.setString(1, film.getTitel());
+            stmtFilm.setString(2, film.getSkuespiller());
+            stmtFilm.setInt(3, film.getPris());
+            stmtFilm.setString(4, film.getAldersgranse());
+            stmtFilm.setInt(5, film.getTid());
+            stmtFilm.setString(6, film.getUrl_billede());
+            stmtFilm.setString(7, film.getKategori());
+            stmtFilm.executeUpdate();
+
+
+        } catch (SQLException e) {
+
+        }
 
     }
 }

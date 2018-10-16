@@ -1,0 +1,29 @@
+#seatOverview{
+    width:50%;
+    margin:50px auto;
+}
+.row {
+    display:block;
+}
+.row:nth-of-type(12){
+    margin-top:40px;
+}
+
+.seat {
+    display:inline-block;
+    width: 35px;
+    height: 50px;
+    border-radius: 7px;
+    background: linear-gradient(to top, #187618, #187618, #187618, #187618, #187618, #40B541,  #68F36A);
+    margin: 0 5px;
+    margin-bottom: 10px;
+    transform: skew(10deg);
+    margin-top: -32px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+
+}
+
+.active {
+
+    background: linear-gradient(to top, #181878, #181878, #181878, #181878, #181878, #4140B5,  #6A68F1);
+}
