@@ -4,7 +4,7 @@ $(document).ready(function () {
     var sal = searchParams.get('sal');
 
 
-    if (sal == 1) {
+    //if (sal == 1) {
         for (var i = 1; i <= 25; i++){
 
             var rowToChar = String.fromCharCode(64 + i);
@@ -17,23 +17,23 @@ $(document).ready(function () {
                 $("#row" + i).append(seat);
             }
         }
-    }
+    //}
 
-    if (sal == 2) {
-        for (var i = 1; i<= 20; i++) {
-
-            var rowToChar = String.fromCharCode(64 + i);
-            var row = "<div class='row2' id='row2" + i + "'></div>";
-            $("#seatOverview").append(row);
-
-            for(var j = 1; j <= 12; j++) {
-
-                var seat = "<div class='seat2' id='seat" + j +"'>" + rowToChar + j + "</div>";
-                $("#row2" + i).append(seat);
-
-            }
-        }
-    }
+    // if (sal == 2) {
+    //     for (var i = 1; i<= 20; i++) {
+    //
+    //         var rowToChar = String.fromCharCode(64 + i);
+    //         var row = "<div class='row2' id='row2" + i + "'></div>";
+    //         $("#seatOverview").append(row);
+    //
+    //         for(var j = 1; j <= 12; j++) {
+    //
+    //             var seat = "<div class='seat2' id='seat" + j +"'>" + rowToChar + j + "</div>";
+    //             $("#row2" + i).append(seat);
+    //
+    //         }
+    //     }
+    // }
 
     $('.seat1').on('click', function () {
         $(this).toggleClass('active');
