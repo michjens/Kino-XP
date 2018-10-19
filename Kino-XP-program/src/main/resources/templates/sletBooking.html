@@ -1,10 +1,24 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+    <title>Slet Booking</title>
+    <link rel="stylesheet" type="text/css" href="Underside.css">
+    <!--  <link rel="stylesheet" type="text/css" href="css.css"/> -->
 </head>
 <body>
+<div class="login-page">
+    <div class="form">
+        <h1>Slet Booking</h1>
 
+        <form method="Post" th:action="@{/sletBooking}" class="login-form">
+            <label>Er du sikker paa at du vil slette denne booking?:</label>
+            <input type="text" th:field="${booking.idBooking}" required="true" readonly="True" /></br></br>
+            <a href="/bookingOversigt"><button>Annullere</button></a>
+            <input style="background: #b2b2b2" type="submit" value="Send" />
+        </form>
+    </div>
+</div>
 </body>
 </html>

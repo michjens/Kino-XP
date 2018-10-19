@@ -160,14 +160,14 @@ public class Booking {
         }
     }
 
-    public static ArrayList<Booking> loadBooking() throws SQLException {
+    public static ArrayList<Booking> loadBooking(String SQLQuery) throws SQLException {
         ArrayList<Booking> bookingArrayList = new ArrayList<>();
 
         con = dbConn.getInstance().createConnection();
         Statement s = null;
         s = con.createStatement();
 
-        ResultSet rs = s.executeQuery("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking");
+        ResultSet rs = s.executeQuery(SQLQuery);
         while (rs.next()){
             bookingArrayList.add(new Booking(rs.getInt(2),rs.getInt(1),rs.getInt(3), rs.getInt(4), rs.getInt(5)));
         }
@@ -184,4 +184,22 @@ public class Booking {
                 ", idVisning=" + idVisning +
                 '}';
     }
+
+    public static void updateBooking(Booking booking, boolean isDelete) throws Exception {
+        con = dbConn.getInstance().createConnection();
+        Statement s = con.createStatement();           // idBruger, Seats, idKunder, idVisning
+        if(isDelete){
+            PreparedStatement stmt = con.prepareStatement("DELETE FROM Booking WHERE bookingId = ?");
+            stmt.setInt(1, booking.getIdBooking());
+        } else {
+            PreparedStatement stmt = con.prepareStatement("UPDATE Booking SET idBruger = ?, Seats = ?, idKunder = ?, idVisning = ? WHERE bookingId = ?");
+            stmt.setInt(1, booking.getBrugerId());
+            stmt.setInt(2, booking.getSeats());
+            stmt.setInt(3, booking.getIdKunde());
+            stmt.setInt(4, booking.getIdVisning());
+            stmt.setInt(5, booking.getIdBooking());
+            stmt.executeUpdate();
+        }
+    }
+
 }

@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Oversigt</title>
-    <link type="text/css" rel="stylesheet" href="Table.css">
+    <link type="text/css" rel="stylesheet" href="Underside.css">
 </head>
 <body>
-<h>Booking Oversigt</h>
+<h1>Booking Oversigt</h1>
+<br>
 
 <table>
     <thead>
@@ -27,8 +28,13 @@
         <td th:text="${booking.idKunde}"></td>
         <td th:text="${booking.idVisning}"></td>
         <td>
-            <a th:href="@{'/redigerBooking'}+${booking.idBooking}"><button type="button" class="btn">Rediger</button></a>
-            <a th:href="@{'/sletBooking'}+${booking.idBooking}"><button type="button" class="btn">Slet</button></a>
+
+            <a th:href="@{'/redigerBooking?id='+${booking.idBooking}}">
+                <button type="button" class="btn">Rediger</button>
+            </a>
+            <a th:href="@{'/sletBooking'+${booking.idBooking}}">
+                <button type="button" class="btn">Slet</button>
+            </a>
         </td>
     </tr>
     </tbody>

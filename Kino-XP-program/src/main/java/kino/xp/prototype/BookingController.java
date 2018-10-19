@@ -5,10 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.lang.reflect.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -21,7 +21,6 @@ public class BookingController {
         Bruger bruger = (Bruger) session.getAttribute("bruger");
         model.addAttribute("bruger", bruger);
         model.addAttribute("booking", new Booking());
-        System.out.println(bruger.getID());
         return "opretBooking";
     }
 
@@ -36,8 +35,33 @@ public class BookingController {
 
     @GetMapping("/bookingOversigt")
     public String bookingOversigt(Model model) throws SQLException {
-        model.addAttribute("booking", Booking.loadBooking());
+        model.addAttribute("booking", Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking"));
         return "bookingOversigt";
+    }
+
+    @GetMapping("/redigerBooking")
+    public String redigerBooking(@RequestParam(value = "idBooking") int idBooking, Model model) throws Exception{
+        model.addAttribute("booking", Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking WHERE idBooking = " + idBooking).get(0));
+        System.out.println(Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking WHERE idBooking = " + idBooking).get(0));
+        return "redigerBooking";
+    }
+
+    @PostMapping("/redigerBooking")
+    public String redigerBooking(@ModelAttribute Booking booking) throws Exception{
+        Booking.updateBooking(booking, false);
+        return "redirect:/bookingOversigt";
+    }
+
+    @GetMapping("/sletBooking")
+    public String sletBooking(@RequestParam(value = "idBooking") int idBooking, Model model) throws Exception{
+        model.addAttribute("booking", Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking WHERE idBooking = " + idBooking).get(0));
+       return "sletBooking";
+    }
+
+    @PostMapping("/sletBooking")
+    public String sletBooking(@ModelAttribute Booking booking) throws Exception{
+        Booking.updateBooking(booking, true);
+        return"redirect:/bookingOversigt";
     }
 
 
