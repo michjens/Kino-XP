@@ -25,7 +25,7 @@ body{
     top: 10px;
 }
 .menu{
-    width: 18%;
+    width: 14%;
 }
 .menu:hover{
     background-color: rgba(0, 0, 50, 0.4);
@@ -33,5 +33,9 @@ body{
 
 .logo{
     width: 24%;
+
+}
+a{
+    text-decoration: none;
 
 }

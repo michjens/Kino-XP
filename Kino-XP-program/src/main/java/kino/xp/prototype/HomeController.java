@@ -89,6 +89,11 @@ public class HomeController {
         return "forside";
     }
 
+    @GetMapping("/vagtplan")
+    public String vagtplan(Model model){
+        return "vagtplan";
+    }
+
     public static ArrayList<Film> loadMovies() throws SQLException {
         ArrayList<Film> movies = new ArrayList<>();
         con = dbConn.getInstance().createConnection();
