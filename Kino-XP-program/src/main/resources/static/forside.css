@@ -43,6 +43,10 @@
     top: 10px;
 }
 
+.movieInformation a {
+    text-decoration: none;
+}
+
 .movieInformation p{
     text-align: left;
     font-family: "Verdana";
