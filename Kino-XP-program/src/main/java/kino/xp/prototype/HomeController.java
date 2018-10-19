@@ -99,9 +99,9 @@ public class HomeController {
         con = dbConn.getInstance().createConnection();
         Statement s = null;
         s = con.createStatement();
-        ResultSet  rs = s.executeQuery("SELECT titel, Skuespiller, Pris, Aldersgrænse, FilmPlakat, Tid, Kategori FROM Film");
+        ResultSet  rs = s.executeQuery("SELECT idFilm, titel, Skuespiller, Pris, Aldersgrænse, FilmPlakat, Tid, Kategori FROM Film");
         while(rs.next()){
-            movies.add(new Film(rs.getString(5), rs.getString(1), rs.getInt(3),rs.getString(4),rs.getString(2), rs.getString(7),rs.getInt(6)));
+            movies.add(new Film(rs.getInt(1),rs.getString(6), rs.getString(2), rs.getInt(4),rs.getString(5),rs.getString(3), rs.getString(8),rs.getInt(7)));
         }
         return movies;
         //String url_billede, String titel, int pris, int aldersgranse, String skuespiller, String kategori, int tid

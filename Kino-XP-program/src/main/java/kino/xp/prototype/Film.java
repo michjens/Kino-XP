@@ -15,6 +15,9 @@ public class Film {
     private String kategori;
     private int tid;
 
+
+
+    private int id;
     public int getId() {
         return id;
     }
@@ -22,8 +25,6 @@ public class Film {
     public void setId(int id) {
         this.id = id;
     }
-
-    private int id;
     private ArrayList<Date> dates = new ArrayList<>();
     static Connection con;
 
@@ -36,6 +37,18 @@ public class Film {
         this.kategori = kategori;
         this.dates = dates;
     }
+
+    public Film(int id, String url_billede, String titel, int pris, String aldersgranse, String skuespiller, String kategori, int tid) {
+        this.id = id;
+        this.url_billede = url_billede;
+        this.titel = titel;
+        this.pris = pris;
+        this.aldersgranse = aldersgranse;
+        this.skuespiller = skuespiller;
+        this.kategori = kategori;
+        this.tid = tid;
+    }
+
 
     public Film(String url_billede, String titel, int pris, String aldersgranse, String skuespiller, String kategori, int tid) {
         this.url_billede = url_billede;
