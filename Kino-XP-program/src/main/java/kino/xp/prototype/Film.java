@@ -171,7 +171,7 @@ public class Film {
             rs = stmt.executeQuery();
             while(rs.next()){
                 f.setId(rs.getInt("idFilm"));
-                System.out.println(f.getId());
+                //System.out.println(f.getId());
                 f.setTitel(titel);
                 f.setSkuespiller(rs.getString("Skuespiller"));
                 f.setPris(rs.getInt("Pris"));
@@ -189,7 +189,7 @@ public class Film {
     public static void editFilm(Film film) throws SQLException {
         con = dbConn.getInstance().createConnection();
         Statement s = con.createStatement();
-        System.out.println(film.getId());
+        //System.out.println(film.getId());
         //s.executeQuery("SET SQL_SAFE_UPDATES=0");
         PreparedStatement stmt = con.prepareStatement("UPDATE KinoXP.Film SET titel = ?, Skuespiller = ?, Pris = ?, Aldersgrænse = ?, Tid = ?, FilmPlakat = ?, Kategori = ? WHERE idFilm = ?");
         //s.executeQuery("SET SQL_SAFE_UPDATES=1");

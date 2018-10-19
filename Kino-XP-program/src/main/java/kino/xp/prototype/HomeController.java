@@ -24,7 +24,7 @@ public class HomeController {
        // return "forside";
         //}
 
-    @GetMapping("/opretFilm")
+    @GetMapping("/")
     public String opretFilm(Model model){
         model.addAttribute("Film", new Film());
         return "opretFilm";
@@ -54,6 +54,8 @@ public class HomeController {
         return "redirect:/";
     }
 
+
+
     @GetMapping("/filmVisninger")
     public String opretVisning(@RequestParam (value = "titel") String titel,  Model model) throws Exception{
         Film f = Film.loadEditFilm(titel);
@@ -69,7 +71,7 @@ public class HomeController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/forside")
     public String forside(Model model) throws SQLException {
         ArrayList<Film> films = new ArrayList<>();
         films = loadMovies();
