@@ -43,9 +43,14 @@
     top: 10px;
 }
 
-.movieInformation{
+.movieInformation p{
+    text-align: left;
     font-family: "Verdana";
     font-weight: bold;
+}
+.movieInformation label:nth-of-type(2){
+    font-weight: normal;
+    font-size:13px;
 }
 
 button{

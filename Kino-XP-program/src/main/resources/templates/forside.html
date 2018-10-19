@@ -9,17 +9,17 @@
 <div th:replace="/header"></div>
 
 <div class="film_oversigt">
-    <div class="form" th:each="films: ${films}">
+    <div class="form movieInformation" th:each="films: ${films}">
 
         <img th:src="${films.url_billede}" height="300" width="250">
         <a th:href="@{'/redigerFilm?titel='+${films.titel}}">
         <button class="button">Rediger</button></a>
-        <p class="movieInformation"><label>Titel: </label><p></p><label th:text="${films.titel}"></label></p>
-        <p class="movieInformation"><label>Pris: </label><p></p><label th:text="${films.pris}"></label></p>
-        <p class="movieInformation"><label>Aldersgrænse: </label><p></p><label th:text="${films.aldersgranse}"></label></p>
-        <p class="movieInformation"><label>Skuespillere: </label><p></p><label th:text="${films.skuespiller}"></label></p>
-        <p class="movieInformation"><label>Kategori: </label><p></p><label th:text="${films.kategori}"></label></p>
-        <p class="movieInformation"><label>Tid: </label><p></p><label th:text="${films.tid}"></label></p>
+        <p><label>Titel: </label><label th:text="${films.titel}"></label></p>
+        <p><label>Pris: </label><label th:text="${films.pris}"></label></p>
+        <p><label>Aldersgrænse: </label><label th:text="${films.aldersgranse}"></label></p>
+        <p><label>Skuespillere: </label><label th:text="${films.skuespiller}"></label></p>
+        <p><label>Kategori: </label><label th:text="${films.kategori}"></label></p>
+        <p><label>Tid: </label><label th:text="${films.tid}"></label></p>
 
     </div>
 </div>
