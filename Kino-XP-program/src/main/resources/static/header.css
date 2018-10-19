@@ -25,7 +25,7 @@ body{
     top: 10px;
 }
 .menu{
-    width: 14%;
+    width: 16%;
 }
 .menu:hover{
     background-color: rgba(0, 0, 50, 0.4);
@@ -37,5 +37,7 @@ body{
 }
 a{
     text-decoration: none;
-
+}
+nav {
+    text-align: center;
 }
