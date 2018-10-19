@@ -18,16 +18,17 @@ public class ConsumablesController {
 
     }
 
-    @GetMapping("/consumablesSales")
-    public String opretSlikSalg(Model model) throws Exception {
+    @GetMapping("/slik")
+    public String slik(Model model) throws Exception {
 
-        model.addAttribute("sale", new Consumables());
+        model.addAttribute("consumables", Consumables.loadConsumables("SELECT navn, pris FROM MadOgDrikke"));
 
-        return "consumablesSales";
+        return "slik";
     }
 
-    @PostMapping("/consumablesSales")
-    public String opretSlikSalg(@ModelAttribute String sale, String Consumables) {
+    @PostMapping("/slik")
+    public String slik(@ModelAttribute String sale, String Consumables) {
+
 
         return "consumablesOverview";
     }
