@@ -3,21 +3,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-    <title>Opret film</title>
+    <title>Rediger Film</title>
     <link rel="stylesheet" type="text/css" href="opretFilm.css"/>
 </head>
 <body>
-<div class="film_oversigt">
+<div class="login-page">
     <div class="form">
-        <h1>Opret film</h1>
+        <h1>Rediger Film</h1>
 
-        <form method="Post" th:action="@{/opretFilm}" class="login-form">
+        <form method="Post" th:action="@{/redigerFilm}" class="login-form">
             <label>Titel:</label>
             <input type="text" th:field="${Film.titel}" required="true" /></br></br>
             <label>Skuespiller:</label>
             <input type="text" th:field="${Film.skuespiller}" required="true" /></br></br>
             <label>Pris:</label>
-            <input type="text" th:field="${Film.pris}" required="true" /></br></br>
+            <input type="text" th:field="${Film.pris}" required="true" readonly="True" /></br></br>
             <label>Aldersgrænse:</label>
             <input type="text" th:field="${Film.aldersgranse}" required="true" /></br></br>
             <label>Tid:</label>
@@ -25,21 +25,21 @@
             <label>Film plakat:</label>
             <input type="text" th:field="${Film.url_billede}" required="true" /></br></br>
             <label>Kategori</label>
-            <select class="dropDown" th:field="${Film.kategori}" required="true" >
+            <select th:field="${Film.kategori}" required="true" >
                 <option th:value="Gyser">Gyser</option>
                 <option th:value="Action">Action</option>
                 <option th:value="Drama">Drama</option>
                 <option th:value="Komedie">Komedie</option>
                 <option th:value="Sci-fi">Sci-fi</option>
             </select>
-
-
+            </br>
+            <label>Film id:</label>
+            <input type="text" th:field="${Film.id}" required="true" readonly="True" /></br></br>
 
             <input style="background: #b2b2b2" type="submit" value="Send" />
 
 
         </form>
-        <button action="/forside" value="Redirect">Tilbage</button>
     </div>
 </div>
 </body>
