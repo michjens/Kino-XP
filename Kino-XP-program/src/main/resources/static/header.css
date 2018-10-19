@@ -1,0 +1,37 @@
+button{
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    /**/
+    background-color: deepskyblue;
+    border: none;
+    color: black;
+    text-align: center;
+    height: 40px;
+    font-family: Helvetica;
+    font-size: 15px;
+}
+
+body{
+    background: rgba(50, 50, 50, 0.4) url("cinema-film-reelseamlessly-loopable-motion-background_ee5l_krce__F0000.png");
+    background-blend-mode: screen;
+}
+.logud{
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+.menu{
+    width: 18%;
+}
+.menu:hover{
+    background-color: rgba(0, 0, 50, 0.4);
+}
+
+.logo{
+    width: 24%;
+
+}

@@ -4,10 +4,11 @@
 <head>
 
     <title>Rediger Film</title>
-    <!--  <link rel="stylesheet" type="text/css" href="css.css"/> -->
+    <link rel="stylesheet" type="text/css" href="opretFilm.css"/>
 </head>
 <body>
-<div class="login-page">
+<div th:replace="/header"></div>
+<div class="film_oversigt">
     <div class="form">
         <h1>Rediger Film</h1>
 
@@ -25,7 +26,7 @@
             <label>Film plakat:</label>
             <input type="text" th:field="${Film.url_billede}" required="true" /></br></br>
             <label>Kategori</label>
-            <select th:field="${Film.kategori}" required="true" >
+            <select class="dropDown" th:field="${Film.kategori}" required="true" >
                 <option th:value="Gyser">Gyser</option>
                 <option th:value="Action">Action</option>
                 <option th:value="Drama">Drama</option>
@@ -37,9 +38,10 @@
             <input type="text" th:field="${Film.id}" required="true" readonly="True" /></br></br>
 
             <input style="background: #b2b2b2" type="submit" value="Send" />
-            <button value = "Redirect">Tilbage</button>
+
 
         </form>
+        <a href="/">Annuller</a>
     </div>
 </div>
 </body>

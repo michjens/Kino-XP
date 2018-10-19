@@ -24,7 +24,7 @@ public class HomeController {
        // return "forside";
         //}
 
-    @GetMapping("/")
+    @GetMapping("/opretFilm")
     public String opretFilm(Model model){
         model.addAttribute("Film", new Film());
         return "opretFilm";
@@ -71,7 +71,7 @@ public class HomeController {
     }
 
 
-    @GetMapping("/forside")
+    @GetMapping("/")
     public String forside(Model model) throws SQLException {
         ArrayList<Film> films = new ArrayList<>();
         films = loadMovies();

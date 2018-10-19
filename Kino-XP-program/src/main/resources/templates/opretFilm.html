@@ -10,7 +10,7 @@
 <div th:replace="/header"></div>
 <div class="film_oversigt">
     <div class="form">
-        <h1>Opret film</h1>
+        <h2>Opret film</h2>
 
         <form method="Post" th:action="@{/opretFilm}" class="login-form">
             <label>Titel:</label>
@@ -36,11 +36,11 @@
 
 
 
-            <input style="background: #b2b2b2" type="submit" value="Send" />
+            <input class="sendButton" type="submit" value="Send" />
 
 
         </form>
-        <button action="/forside" value="Redirect">Tilbage</button>
+        <a href="/">Annuller</a>
     </div>
 </div>
 </body>
