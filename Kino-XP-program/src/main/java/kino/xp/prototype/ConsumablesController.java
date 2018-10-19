@@ -18,6 +18,7 @@ public class ConsumablesController {
 
     }
 
+<<<<<<< HEAD
     @PostMapping("/createConsumables")
     public String opretSlik(@ModelAttribute Consumables consumables) {
         System.out.println(consumables.pris);
@@ -25,5 +26,20 @@ public class ConsumablesController {
         consumables.gemGuf();
         System.out.println(consumables.pris);
         return "redirect:/";
+=======
+    @GetMapping("/slik")
+    public String slik(Model model) throws Exception {
+
+        model.addAttribute("consumables", Consumables.loadConsumables("SELECT navn, pris FROM MadOgDrikke"));
+
+        return "slik";
+    }
+
+    @PostMapping("/slik")
+    public String slik(@ModelAttribute String sale, String Consumables) {
+
+
+        return "consumablesOverview";
+>>>>>>> f9f93fe56e597fc3b38e78df4889bb537d2fa82a
     }
 }

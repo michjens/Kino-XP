@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Salg af slik</title>
+    <link type="text/css" rel="stylesheet" href="Underside.css">
+</head>
+<body>
+<div th:replace="/header"></div>
+<h1>Salg af Slik</h1>
+<br>
+
+<table>
+    <thead>
+    <tr>
+        <th>Vare</th>
+        <th>Pris</th>
+        <th>Antal</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="consumables: ${consumables}">
+        <td th:text="${consumables.navn}"></td>
+        <td th:text="${consumables.pris}"></td>
+        <td>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button type="submit" value="send">Godkend</button>
+<a href="/"><button>Annuller</button></a>
+</body>
+</html>
