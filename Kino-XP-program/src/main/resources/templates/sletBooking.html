@@ -15,7 +15,7 @@
         <h1>Slet Booking</h1>
 
         <form method="Post" th:action="@{/sletBooking}" class="login-form">
-            <label>Er du sikker paa at du vil slette denne booking?:</label>
+            <label>Er du sikker på at du vil slette denne booking?:</label>
             <input type="text" th:field="${booking.idBooking}" required="true" readonly="True" /></br></br>
             <a href="/bookingOversigt"><button>Annullere</button></a>
             <input style="background: #b2b2b2" type="submit" value="Send" />
