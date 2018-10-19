@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -14,19 +13,19 @@
 
         <form method="Post" th:action="@{/opretFilm}" class="login-form">
             <label>Titel:</label>
-            <input class="textInput" type="text" th:field="${Film.titel}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.titel}" required="true"/></br></br>
             <label>Skuespiller:</label>
-            <input class="textInput" type="text" th:field="${Film.skuespiller}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.skuespiller}" required="true"/></br></br>
             <label>Pris:</label>
-            <input class="textInput" type="text" th:field="${Film.pris}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.pris}" required="true"/></br></br>
             <label>Aldersgrænse:</label>
-            <input class="textInput" type="text" th:field="${Film.aldersgranse}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.aldersgranse}" required="true"/></br></br>
             <label>Tid:</label>
-            <input class="textInput" type="text" th:field="${Film.tid}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.tid}" required="true"/></br></br>
             <label>Film plakat:</label>
-            <input class="textInput" type="text" th:field="${Film.url_billede}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.url_billede}" required="true"/></br></br>
             <label>Kategori</label>
-            <select class="dropDown" th:field="${Film.kategori}" required="true" >
+            <select class="dropDown" th:field="${Film.kategori}" required="true">
                 <option th:value="Gyser">Gyser</option>
                 <option th:value="Action">Action</option>
                 <option th:value="Drama">Drama</option>
@@ -35,12 +34,13 @@
             </select>
 
 
-
-            <input class="sendButton" type="submit" value="Send" />
+            <input class="sendButton" type="submit" value="Send"/>
 
 
         </form>
-        <a href="/"><button class="cancelButton">Annuller</button></a>
+        <a href="/">
+            <button class="cancelButton">Annuller</button>
+        </a>
     </div>
 </div>
 </body>

@@ -2,6 +2,10 @@ body{
     background: rgba(50, 50, 50, 0.4) url("cinema-film-reelseamlessly-loopable-motion-background_ee5l_krce__F0000.png");
     background-blend-mode: screen;
 }
+
+h1{
+    text-align: center;
+}
 .film_oversigt {
     width: 360px;
     padding: 2% 0 0;
