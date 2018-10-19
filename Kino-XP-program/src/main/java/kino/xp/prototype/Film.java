@@ -186,6 +186,32 @@ public class Film {
         }
         return f;
     }
+    public static Film loadEditFilm(int id){
+        con = dbConn.getInstance().createConnection();
+        ResultSet rs;
+        String selectSQL = "SELECT * FROM KinoXP.Film WHERE idFilm = ?";
+        Film f = new Film();
+        try {
+            PreparedStatement stmt = con.prepareStatement(selectSQL);
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            while(rs.next()){
+                f.setId(rs.getInt("idFilm"));
+                //System.out.println(f.getId());
+                f.setTitel(rs.getString("Titel"));
+                f.setSkuespiller(rs.getString("Skuespiller"));
+                f.setPris(rs.getInt("Pris"));
+                f.setAldersgranse(rs.getString("Aldersgrænse"));
+                f.setTid(rs.getInt("Tid"));
+                f.setUrl_billede(rs.getString("FilmPlakat"));
+                f.setKategori(rs.getString("Kategori"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return f;
+    }
     public static void editFilm(Film film) throws SQLException {
         con = dbConn.getInstance().createConnection();
         Statement s = con.createStatement();

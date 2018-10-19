@@ -5,29 +5,44 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 
 public class Visninger {
     static Connection con;
 
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private Date date;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate date;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+    private LocalTime time;
     private int sal;
     private int idFilm;
 
-    public Visninger(Date date, int sal, int idFilm) {
+    public Visninger() {
+    }
+
+    public Visninger(LocalDate date, int sal, int idFilm) {
         this.date = date;
         this.sal = sal;
         this.idFilm = idFilm;
     }
 
+    public LocalTime getTime() {
+        return time;
+    }
 
-    public Date getDate() {
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -47,23 +62,24 @@ public class Visninger {
         this.idFilm = idFilm;
     }
 
-    public Visninger() {
-    }
+
 
     public static void opretVisning(Visninger visninger, Film f) throws Exception {
         con = dbConn.getInstance().createConnection();
         //Statement s = null;
         try {
             //s = con.createStatement();
-            PreparedStatement stmtFilm = con.prepareStatement("INSERT INTO KinoXP.Visninger(Dato, idFilm, Sal) VALUES (?,?,?) WHERE idVisninger = ?");
-            stmtFilm.setTimestamp(1, new java.sql.Timestamp(visninger.getDate().getTime()));
+            PreparedStatement stmtFilm = con.prepareStatement("INSERT INTO KinoXP.Visninger(Dato, idFilm, Sal) VALUES (?,?,?)");
+            LocalDateTime datetime = LocalDateTime.of(visninger.getDate(), visninger.getTime());
+            java.sql.Timestamp date = java.sql.Timestamp.valueOf(datetime);
+            stmtFilm.setTimestamp(1, date);
             stmtFilm.setInt(2, (f.getId()));
             stmtFilm.setInt(3, visninger.getSal());
             stmtFilm.executeUpdate();
 
 
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
 
     }

@@ -57,8 +57,8 @@ public class HomeController {
 
 
     @GetMapping("/filmVisninger")
-    public String opretVisning(@RequestParam (value = "titel") String titel,  Model model) throws Exception{
-        Film f = Film.loadEditFilm(titel);
+    public String opretVisning(@RequestParam (value = "id") int id,  Model model) throws Exception{
+        Film f = Film.loadEditFilm(id);
         model.addAttribute("visning", new Visninger());
         model.addAttribute("film", f);
         return "filmVisninger";
