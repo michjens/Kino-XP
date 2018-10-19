@@ -7,24 +7,27 @@
 </head>
 <body>
 <div th:replace="/header"></div>
-<h1>Opret nyt guf</h1>
 
 <div class="film_oversigt">
     <div class="form">
-<br method="post" th:action="@{/createConsumables.html}">
-    <label>Navn: </label>
-    <input oninvalid="alert('Navn på guf skal indtastes!')" required title="Indtast navn" type="text" th:field="${candy.navn}">
-    <p></p>
-    <label>Pris: </label>
-    <input oninvalid="alert('Pris på guf skal indtastes!')" required title="Indtast pris" type="double" th:field="${candy.pris}">
-    <p></p>
+        <h2>Opret nyt guf</h2>
+        <form method="post" th:action="@{/createConsumables}">
+            <label>Navn: </label>
+            <input class="textInput" oninvalid="alert('Navn på guf skal indtastes!')" required title="Indtast navn" type="text"
+                   th:field="${candy.navn}">
+            <p></p>
+            <label>Pris: </label>
+            <input class="textInput" oninvalid="alert('Pris på guf skal indtastes!')" required title="Indtast pris" type="text"
+                   th:field="${candy.pris}">
+            <p></p>
 
-    <button type="submit" value="send">Godkend</button>
-    <a href="/"><button>Annuller</button></a>
-</form>
+            <button type="submit" value="send">Godkend</button>
+            <a href="/">
+                <button>Annuller</button>
+            </a>
+        </form>
     </div>
 </div>
-
 
 
 </body>

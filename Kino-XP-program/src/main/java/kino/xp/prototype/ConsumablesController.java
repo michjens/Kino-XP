@@ -18,17 +18,12 @@ public class ConsumablesController {
 
     }
 
-    @GetMapping("/consumablesSales")
-    public String opretSlikSalg(Model model) throws Exception {
+    @PostMapping("/createConsumables")
+    public String opretSlik(@ModelAttribute Consumables consumables) {
+        System.out.println(consumables.pris);
 
-        model.addAttribute("sale", new Consumables());
-
-        return "consumablesSales";
-    }
-
-    @PostMapping("/consumablesSales")
-    public String opretSlikSalg(@ModelAttribute String sale, String Consumables) {
-
-        return "consumablesOverview";
+        consumables.gemGuf();
+        System.out.println(consumables.pris);
+        return "redirect:/";
     }
 }
