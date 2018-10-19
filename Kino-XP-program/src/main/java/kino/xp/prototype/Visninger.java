@@ -11,7 +11,7 @@ public class Visninger {
     static Connection con;
 
 
-    @DateTimeFormat(pattern = "yyyy-MM-DD'T'HH:mm")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date date;
     private int sal;
     private int idFilm;
