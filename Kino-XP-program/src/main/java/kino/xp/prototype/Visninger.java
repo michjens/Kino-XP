@@ -64,16 +64,17 @@ public class Visninger {
 
 
 
-    public static void opretVisning(Visninger visninger, Film f) throws Exception {
+    public static void opretVisning(Visninger visninger) throws Exception {
         con = dbConn.getInstance().createConnection();
         //Statement s = null;
+        System.out.println(visninger.getIdFilm());
         try {
             //s = con.createStatement();
             PreparedStatement stmtFilm = con.prepareStatement("INSERT INTO KinoXP.Visninger(Dato, idFilm, Sal) VALUES (?,?,?)");
             LocalDateTime datetime = LocalDateTime.of(visninger.getDate(), visninger.getTime());
             java.sql.Timestamp date = java.sql.Timestamp.valueOf(datetime);
             stmtFilm.setTimestamp(1, date);
-            stmtFilm.setInt(2, (f.getId()));
+            stmtFilm.setInt(2, visninger.getIdFilm());
             stmtFilm.setInt(3, visninger.getSal());
             stmtFilm.executeUpdate();
 
