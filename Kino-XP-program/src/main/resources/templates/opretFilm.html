@@ -14,17 +14,17 @@
 
         <form method="Post" th:action="@{/opretFilm}" class="login-form">
             <label>Titel:</label>
-            <input type="text" th:field="${Film.titel}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.titel}" required="true" /></br></br>
             <label>Skuespiller:</label>
-            <input type="text" th:field="${Film.skuespiller}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.skuespiller}" required="true" /></br></br>
             <label>Pris:</label>
-            <input type="text" th:field="${Film.pris}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.pris}" required="true" /></br></br>
             <label>Aldersgrænse:</label>
-            <input type="text" th:field="${Film.aldersgranse}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.aldersgranse}" required="true" /></br></br>
             <label>Tid:</label>
-            <input type="text" th:field="${Film.tid}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.tid}" required="true" /></br></br>
             <label>Film plakat:</label>
-            <input type="text" th:field="${Film.url_billede}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${Film.url_billede}" required="true" /></br></br>
             <label>Kategori</label>
             <select class="dropDown" th:field="${Film.kategori}" required="true" >
                 <option th:value="Gyser">Gyser</option>
@@ -40,7 +40,7 @@
 
 
         </form>
-        <a href="/">Annuller</a>
+        <a href="/"><button class="cancelButton">Annuller</button></a>
     </div>
 </div>
 </body>
