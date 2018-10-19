@@ -6,15 +6,9 @@
     <link rel="stylesheet" type="text/css" href="forside.css">
 </head>
 
-<div>
-        <img src="LogoMakr_3EtZfT.png" height="100" width="300" class="logo"/>
-        <button class="logud">log ud </button>
-        <a th:href="opretFilm"><button class="menu">Opret film</button></a>
-        <a th:href="bookingOversigt"><button class="menu">Booking oversigt</button></a>
-        <a th:href="billetStatistik"><button class="menu">Billet statistik</button></a>
-        <a th:href="opretBooking"><button class="menu">booking</button></a>
+<div th:replace="/header"></div>
 
-</div>
+
 
 <div class="film_oversigt">
     <div class="form" th:each="films: ${films}">
