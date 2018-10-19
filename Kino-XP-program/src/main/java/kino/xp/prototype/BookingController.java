@@ -40,9 +40,8 @@ public class BookingController {
     }
 
     @GetMapping("/redigerBooking")
-    public String redigerBooking(@RequestParam(value = "idBooking") int idBooking, Model model) throws Exception{
-        model.addAttribute("booking", Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking WHERE idBooking = " + idBooking).get(0));
-        System.out.println(Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking WHERE idBooking = " + idBooking).get(0));
+    public String redigerBooking(@RequestParam(value = "id") int id, Model model) throws Exception{
+        model.addAttribute("booking", Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking WHERE idBooking = " + id).get(0));
         return "redigerBooking";
     }
 
@@ -53,8 +52,8 @@ public class BookingController {
     }
 
     @GetMapping("/sletBooking")
-    public String sletBooking(@RequestParam(value = "idBooking") int idBooking, Model model) throws Exception{
-        model.addAttribute("booking", Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking WHERE idBooking = " + idBooking).get(0));
+    public String sletBooking(@RequestParam(value = "id") int id, Model model) throws Exception{
+        model.addAttribute("booking", Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking WHERE idBooking = " + id).get(0));
        return "sletBooking";
     }
 

@@ -32,7 +32,7 @@
             <a th:href="@{'/redigerBooking?id='+${booking.idBooking}}">
                 <button type="button" class="btn">Rediger</button>
             </a>
-            <a th:href="@{'/sletBooking'+${booking.idBooking}}">
+            <a th:href="@{'/sletBooking?id='+${booking.idBooking}}">
                 <button type="button" class="btn">Slet</button>
             </a>
         </td>

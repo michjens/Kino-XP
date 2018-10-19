@@ -189,15 +189,15 @@ public class Booking {
         con = dbConn.getInstance().createConnection();
         Statement s = con.createStatement();           // idBruger, Seats, idKunder, idVisning
         if(isDelete){
-            PreparedStatement stmt = con.prepareStatement("DELETE FROM Booking WHERE bookingId = ?");
+            PreparedStatement stmt = con.prepareStatement("DELETE FROM Booking WHERE idBooking = ?");
             stmt.setInt(1, booking.getIdBooking());
+            stmt.executeUpdate();
         } else {
-            PreparedStatement stmt = con.prepareStatement("UPDATE Booking SET idBruger = ?, Seats = ?, idKunder = ?, idVisning = ? WHERE bookingId = ?");
-            stmt.setInt(1, booking.getBrugerId());
-            stmt.setInt(2, booking.getSeats());
-            stmt.setInt(3, booking.getIdKunde());
-            stmt.setInt(4, booking.getIdVisning());
-            stmt.setInt(5, booking.getIdBooking());
+            PreparedStatement stmt = con.prepareStatement("UPDATE Booking SET Seats = ?, idKunder = ?, idVisning = ? WHERE idBooking = ?");
+            stmt.setInt(1, booking.getSeats());
+            stmt.setInt(2, booking.getIdKunde());
+            stmt.setInt(3, booking.getIdVisning());
+            stmt.setInt(4, booking.getIdBooking());
             stmt.executeUpdate();
         }
     }
