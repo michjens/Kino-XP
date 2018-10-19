@@ -1,15 +1,12 @@
 package kino.xp.prototype;
 
 import java.sql.Connection;
-<<<<<<< HEAD
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-=======
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
->>>>>>> f9f93fe56e597fc3b38e78df4889bb537d2fa82a
 
 public class Consumables {
 
@@ -26,7 +23,6 @@ public class Consumables {
 
     }
 
-<<<<<<< HEAD
     public void gemGuf () {
 
         Connection con = dbConn.getInstance().createConnection();
@@ -40,14 +36,12 @@ public class Consumables {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
-
-=======
     public Consumables(double pris, String navn, int antal) {
         this.pris = pris;
         this.navn = navn;
         this.antal = antal;
->>>>>>> f9f93fe56e597fc3b38e78df4889bb537d2fa82a
     }
 
     public double getPris() {

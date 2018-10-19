@@ -18,15 +18,12 @@ public class ConsumablesController {
 
     }
 
-<<<<<<< HEAD
     @PostMapping("/createConsumables")
     public String opretSlik(@ModelAttribute Consumables consumables) {
-        System.out.println(consumables.pris);
 
         consumables.gemGuf();
-        System.out.println(consumables.pris);
         return "redirect:/";
-=======
+    }
     @GetMapping("/slik")
     public String slik(Model model) throws Exception {
 
@@ -40,6 +37,5 @@ public class ConsumablesController {
 
 
         return "consumablesOverview";
->>>>>>> f9f93fe56e597fc3b38e78df4889bb537d2fa82a
     }
 }
