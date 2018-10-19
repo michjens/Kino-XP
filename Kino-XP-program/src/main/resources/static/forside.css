@@ -43,6 +43,11 @@
     top: 10px;
 }
 
+.movieInformation{
+    font-family: "Verdana";
+    font-weight: bold;
+}
+
 button{
     padding: 10px 20px;
     text-decoration: none;
