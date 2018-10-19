@@ -59,14 +59,16 @@ public class HomeController {
     @GetMapping("/filmVisninger")
     public String opretVisning(@RequestParam (value = "id") int id,  Model model) throws Exception{
         Film f = Film.loadEditFilm(id);
-        model.addAttribute("visning", new Visninger());
-        model.addAttribute("film", f);
+        Visninger visning = new Visninger();
+        visning.setIdFilm(id);
+        model.addAttribute("visning", visning);
+        //model.addAttribute("film", f);
         return "filmVisninger";
     }
 
     @PostMapping("/filmVisninger")
-    public String opretVisning(@ModelAttribute Visninger visninger, String titel) throws Exception{
-        Visninger.opretVisning(visninger, Film.loadEditFilm(titel));
+    public String opretVisning(@ModelAttribute Visninger visninger) throws Exception{
+        Visninger.opretVisning(visninger);
         return "redirect:/";
     }
 
