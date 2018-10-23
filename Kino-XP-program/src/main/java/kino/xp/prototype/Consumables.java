@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Consumables {
 
+    int id;
     double pris;
     String navn;
     int antal;
@@ -42,6 +43,14 @@ public class Consumables {
         this.pris = pris;
         this.navn = navn;
         this.antal = antal;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public double getPris() {

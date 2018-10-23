@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vælg salg eller opret af slik</title>
+    <link rel="stylesheet" href="opretFilm.css">
+    <link rel="stylesheet" href="slikSalg.css">
+</head>
+<body>
+<div th:replace="header"></div>
+<div class="film_oversigt">
+    <div class="form">
+        <a class="slikValg" href="/slikSalg">Sælg slik</a>
+        <a class="slikValg" href="/createConsumables">Opret nyt slik</a>
+    </div>
+</div>
+</body>
+</html>
