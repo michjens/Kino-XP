@@ -122,6 +122,9 @@ public class Booking {
         this.idVisning = idVisning;
     }
 
+    /*TEST:
+    * Skal kunne gemme en booking i databasen
+    * */
     public static void opretBooking(Booking booking){
         con = dbConn.getInstance().createConnection();
         try{
@@ -160,6 +163,9 @@ public class Booking {
         }
     }
 
+    /*TEST:
+    * Skal kunne hente en booking fra databasen
+    * */
     public static ArrayList<Booking> loadBooking(String SQLQuery) throws SQLException {
         ArrayList<Booking> bookingArrayList = new ArrayList<>();
 
@@ -185,6 +191,9 @@ public class Booking {
                 '}';
     }
 
+    /*TEST:
+    * Skal kunne opdatere en eksisterende booking i databasen
+    * */
     public static void updateBooking(Booking booking, boolean isDelete) throws Exception {
         con = dbConn.getInstance().createConnection();
         Statement s = con.createStatement();           // idBruger, Seats, idKunder, idVisning

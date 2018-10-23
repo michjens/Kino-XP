@@ -18,7 +18,11 @@ public class LoginController {
 
     String error = "";
 
-    @GetMapping("/")
+    /*TEST:
+     * Skal kunne vise login.html og
+     * gøre ligge en bruger i en model
+     * */
+    @GetMapping("/login")
     public String login(Model model) {
 
         model.addAttribute("bruger", new Bruger());
@@ -29,6 +33,10 @@ public class LoginController {
         return "login";
     }
 
+    /*TEST:
+     * Skal kunne logge en bruger ind after tryk på knap
+     * og gemme bruger i Sesssion
+     * */
     @PostMapping("/login")
     public String login(@ModelAttribute Bruger bruger, HttpServletRequest request) {
 
@@ -38,7 +46,7 @@ public class LoginController {
             if (eksisterendeBruger.getPassword().equals(bruger.getPassword())) {
                 HttpSession session = request.getSession();
                 session.setAttribute("bruger", eksisterendeBruger);
-                return "redirect:/forside";
+                return "redirect:/";
             }
         }
         error = "Ugyldigt login";
@@ -46,6 +54,10 @@ public class LoginController {
         return "redirect:/login";
     }
 
+
+    /*TEST:
+     * Henter bruger fra database ud fra en email
+     * */
     public Bruger getBrugerFraDB(String email) {
         dbConn db = dbConn.getInstance();
         Connection con = db.createConnection();
