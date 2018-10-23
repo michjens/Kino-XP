@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="Underside.css">
+    <link rel="stylesheet" type="text/css" href="opretFilm.css"/>
 
 </head>
 <body>
@@ -13,31 +13,34 @@
         <h1>Opret booking</h1>
 
         <form method="post" th:action="@{/opretBooking}">
-        <label>Fornavn: </label>
-        <input class="textInput" oninvalid="alert('Fornavn skal udfyldes!')" required title="Indtast fornavn" type="text"
-               th:field="${booking.kundeFornavn}">
-        <p></p>
-        <label>Efternavn: </label>
-        <input class="textInput" oninvalid="alert('Efternavn skal udfyldes!')" required title="Indtast efternavn" type="text"
-               th:field="${booking.efternavn}">
-        <p></p>
-        <label>Telfon nr.: </label>
-        <input class="textInput" oninvalid="alert('Telefon nr. skal udfyldes!')" required title="Indtast telefon nr." type="number"
-               th:field="${booking.telefon}">
-        <p></p>
-        <label>Email: </label>
-        <input class="textInput" type="email" th:field="${booking.email}">
-        <p></p>
-        <label>Reklamer: </label>
-        <input class="textInput" type="checkbox" th:field="${booking.reklamer}">
-        <p></p>
-        <label>Betjent af: </label>
-        <input class="textInput" type="text" th:field="${bruger.fornavn}" readonly="true">
-        <p></p>
-        <button type="submit" value="send">Godkend</button>
-        <a href="/">
-            <button>Annuller</button>
-        </a>
+            <label>Fornavn: </label>
+            <input class="textInput" oninvalid="alert('Fornavn skal udfyldes!')" required title="Indtast fornavn"
+                   type="text"
+                   th:field="${booking.kundeFornavn}">
+            <p></p>
+            <label>Efternavn: </label>
+            <input class="textInput" oninvalid="alert('Efternavn skal udfyldes!')" required title="Indtast efternavn"
+                   type="text"
+                   th:field="${booking.efternavn}">
+            <p></p>
+            <label>Telfon nr.: </label>
+            <input class="textInput" oninvalid="alert('Telefon nr. skal udfyldes!')" required
+                   title="Indtast telefon nr." type="number"
+                   th:field="${booking.telefon}">
+            <p></p>
+            <label>Email: </label>
+            <input class="textInput" type="email" th:field="${booking.email}">
+            <p></p>
+            <label>Reklamer: </label>
+            <input class="textInput" type="checkbox" th:field="${booking.reklamer}">
+            <p></p>
+            <label>Betjent af: </label>
+            <input class="textInput" type="text" th:field="${bruger.fornavn}" readonly="true">
+            <p></p>
+            <button type="submit" value="send">Godkend</button>
+            <a href="/">
+                <button>Annuller</button>
+            </a>
 
         </form>
     </div>
