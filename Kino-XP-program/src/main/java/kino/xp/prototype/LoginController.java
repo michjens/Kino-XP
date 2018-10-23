@@ -18,7 +18,7 @@ public class LoginController {
 
     String error = "";
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String login(Model model) {
 
         model.addAttribute("bruger", new Bruger());

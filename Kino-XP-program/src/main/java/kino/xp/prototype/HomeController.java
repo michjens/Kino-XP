@@ -73,7 +73,7 @@ public class HomeController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/forside")
     public String forside(Model model) throws SQLException {
         ArrayList<Film> films = new ArrayList<>();
         films = loadMovies();
