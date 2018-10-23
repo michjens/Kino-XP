@@ -38,7 +38,7 @@ public class LoginController {
             if (eksisterendeBruger.getPassword().equals(bruger.getPassword())) {
                 HttpSession session = request.getSession();
                 session.setAttribute("bruger", eksisterendeBruger);
-                return "redirect:/";
+                return "redirect:/forside";
             }
         }
         error = "Ugyldigt login";
