@@ -74,20 +74,4 @@ public class Bruger {
         this.access = access;
     }
 
-    public static String[] login(String username, String password) throws SQLException {
-        Connection con;
-        String[] login = new String[2];
-        con = dbConn.getInstance().createConnection();
-        Statement s = null;
-        s = con.createStatement();
-        ResultSet rs = s.executeQuery("SELECT email, password, Bruger.access FROM ap.Bruger");
-        while (rs.next()) {
-            if (username.toLowerCase().equals(rs.getString("email").toLowerCase()) && password.toLowerCase().equals(rs.getString("password").toLowerCase())) {
-                login[0] = rs.getString("email").toLowerCase();
-                login[1] = rs.getString("access").toLowerCase();
-                return login;
-            }
-        }
-        return login;
-    }
 }

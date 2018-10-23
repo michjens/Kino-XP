@@ -24,6 +24,9 @@ public class Consumables {
 
     }
 
+    /*TEST:
+    * Skal kunne gemme consumables i databasen
+    * */
     public void gemGuf () {
 
         Connection con = dbConn.getInstance().createConnection();
@@ -77,6 +80,9 @@ public class Consumables {
         this.antal = antal;
     }
 
+    /*TEST:
+    * Skal kunne hente alle Consumables fra databasen
+    * */
     public static ArrayList<Consumables> loadConsumables(String SQLQuery) throws SQLException {
         ArrayList<Consumables> consumablesArrayList = new ArrayList<>();
 

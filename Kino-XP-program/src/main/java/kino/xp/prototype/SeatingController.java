@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class SeatingController {
 
+    /*TEST:
+    * Skal kunne vise seating.html
+    * */
     @GetMapping("/seating")
     public String seating(Model model){
         model.addAttribute("test", "hey");

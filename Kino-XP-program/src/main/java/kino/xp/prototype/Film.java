@@ -142,6 +142,9 @@ public class Film {
         this.dates = dates;
     }
 
+    /*TEST:
+    * Skal kunne slette en film i databasen
+    * */
     public static void deleteFilm(String inputEmail) throws SQLException {
 
         con = dbConn.getInstance().createConnection();
@@ -151,6 +154,9 @@ public class Film {
 
     }
 
+    /*TEST:
+    * Skal kunne oprette en film i databasen
+    * */
     public static void createFilm(Film film) {
         con = dbConn.getInstance().createConnection();
         //Statement s = null;
@@ -173,6 +179,9 @@ public class Film {
 
     }
 
+    /*TEST:
+    * Skal kunne hente en film fra databasen ud fra en titel
+    * */
     public static Film loadEditFilm(String titel){
         con = dbConn.getInstance().createConnection();
         ResultSet rs;
@@ -199,6 +208,10 @@ public class Film {
         }
         return f;
     }
+
+    /*TEST:
+    * Skal kunne hente en film fra databasen ud fra et id
+    * */
     public static Film loadEditFilm(int id){
         con = dbConn.getInstance().createConnection();
         ResultSet rs;
@@ -225,6 +238,10 @@ public class Film {
         }
         return f;
     }
+
+    /*TEST:
+    * Skal kunne opdatere en eksisterende film
+    * */
     public static void editFilm(Film film) throws SQLException {
         con = dbConn.getInstance().createConnection();
         Statement s = con.createStatement();

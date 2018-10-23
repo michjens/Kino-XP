@@ -64,6 +64,9 @@ public class Visninger {
 
 
 
+    /*TEST:
+    * Skal kunne oprette en visning i databasen
+    * */
     public static void opretVisning(Visninger visninger) throws Exception {
         con = dbConn.getInstance().createConnection();
         //Statement s = null;
