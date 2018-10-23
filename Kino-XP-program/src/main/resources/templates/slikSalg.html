@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Silk salg</title>
+    <link rel="stylesheet" href="opretFilm.css">
+    <link rel="stylesheet" href="slikSalg.css">
+</head>
+<body>
+<div th:replace="/header"></div>
+
+<div class="film_oversigt">
+    <div class="form">
+
+        <form method="post" th:action="@{/slikSalg}">
+            <select name="" id="">
+                <option id="slikDDL" th:each="slik : ${slik}" th:value="${slik.pris}"
+                        th:text="${slik.navn}+' : '+${slik.pris}"></option>
+            </select>
+            X
+            <input id="amount" type="number">
+            <div id="add">Tilføj</div>
+
+            <div id="total">Total: 0</div>
+
+            <button>Bekræft</button>
+        </form>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="slik.js"></script>
+</body>
+</html>

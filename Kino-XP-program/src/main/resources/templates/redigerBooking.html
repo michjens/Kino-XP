@@ -4,30 +4,33 @@
 <head>
 
     <title>Rediger Booking</title>
-    <link rel="stylesheet" type="text/css" href="Underside.css">
+    <link rel="stylesheet" type="text/css" href="opretFilm.css"/>
 
     <!--  <link rel="stylesheet" type="text/css" href="css.css"/> -->
 </head>
 <body>
 <div th:replace="/header"></div>
-
+<br>
 <div class="login-page">
     <div class="form">
         <h1>Rediger Booking</h1>
 
         <form method="Post" th:action="@{/redigerBooking}" class="login-form">
             <label>Booking ID:</label>
-            <input type="text" th:field="${booking.idBooking}" required="true" readonly="true" /></br></br>
+            <input class="textInput" type="text" th:field="${booking.idBooking}" required="true" readonly="true" /></br></br>
             <label>Ansat ID:</label>
-            <input type="text" th:field="${booking.brugerId}" required="true" readonly="true" /></br></br>
+            <input class="textInput" type="text" th:field="${booking.brugerId}" required="true" readonly="true" /></br></br>
             <label>Kunde ID:</label>
-            <input type="text" th:field="${booking.idKunde}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${booking.idKunde}" required="true" /></br></br>
             <label>Antal seats:</label>
-            <input type="text" th:field="${booking.seats}" required="true" /></br></br>
+            <input class="textInput" type="text" th:field="${booking.seats}" required="true" /></br></br>
             <label>Visning:</label>
-            <input type="text" th:field="${booking.idVisning}" required="true" /></br></br>
+            <input class="textInput"type="text" th:field="${booking.idVisning}" required="true" /></br></br>
 
-            <input style="background: #b2b2b2" type="submit" value="Send" />
+            <button type="submit" value="send">Godkend</button>
+            <a href="/">
+                <button>Annuller</button>
+            </a>
 
         </form>
     </div>

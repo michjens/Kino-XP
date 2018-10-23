@@ -1,0 +1,50 @@
+input[type="number"] {
+    width: 15%;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+select {
+    text-align: left;
+    width: 70%;
+    padding: 2px;
+}
+
+#total{
+    color:darkred;
+    margin-top:100px;
+    margin-right:12px;
+    text-align: right;
+}
+
+#add {
+    padding: 5px 5px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 16px;
+    background-color: deepskyblue;
+    border: none;
+    color: black;
+    font-family: Helvetica;
+    font-size: 15px;
+    float:right;
+    margin:0 12px;
+
+}
+
+.slikValg{
+    padding: 15px 10px;
+    text-decoration: none;
+    width:200px;
+    margin: 20px auto;
+    cursor: pointer;
+    border-radius: 16px;
+    /**/
+    background-color: deepskyblue;
+    border: none;
+    color: black;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 15px;
+    display:block;
+}

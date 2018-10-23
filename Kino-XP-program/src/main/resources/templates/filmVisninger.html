@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" type="text/css" href="header.css">
+    <link rel="stylesheet" type="text/css" href="Underside.css">
 
     <title>Visninger</title>
     <!--  <link rel="stylesheet" type="text/css" href="css.css"/> -->
 </head>
 <body>
-<div class="login-page">
+<div th:replace="/header"></div>
+<div class="film_oversigt">
     <div class="form">
         <h1>Visninger</h1>
 
@@ -15,21 +16,22 @@
 
 
             <label>Film ID:</label>
-            <input type="text" readonly th:field="${visning.idFilm}"></br></br>
+            <input class="textInput" type="text" readonly th:field="${visning.idFilm}"></br></br>
             <label>Dato:</label>
-            <input type="date" th:field="${visning.date}" required="true" /></br></br>
+            <input class="textInput" type="date" th:field="${visning.date}" required="true" /></br></br>
             <label>Tidspunkt:</label>
-            <input type="time" th:field="${visning.time}" required="true"></br></br>
+            <input class="textInput" type="time" th:field="${visning.time}" required="true"></br></br>
             <label>Sal:</label>
-            <select th:field="${visning.sal}" required="true" >
+            <select class="dropDown" th:field="${visning.sal}" required="true" >
                 <option th:value="1">Sal 1</option>
                 <option th:value="2">Sal 2</option>
             </select>
             <!--<label th:value=""-->
 
-
-
-            <input style="background: #b2b2b2" type="submit" value="Send" />
+            <button type="submit" value="send">Godkend</button>
+            <a href="/">
+                <button>Annuller</button>
+            </a>
 
 
         </form>

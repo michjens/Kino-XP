@@ -15,6 +15,11 @@ import java.util.ArrayList;
 @Controller
 public class BookingController {
 
+
+    /*TEST:
+     * Skal vise opretBooking.html
+     * Skal forhindre visning af html hvis bruger ikke er logget ind
+     * */
     @GetMapping("/opretBooking")
     public String opretBooking(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -24,6 +29,9 @@ public class BookingController {
         return "opretBooking";
     }
 
+    /*TEST:
+     * Skal kunne tage imod et Booking objekt, tilknytte bruger id til det og oprette det i databasen
+     * */
     @PostMapping("/opretBooking")
     public String opretBooking(@ModelAttribute Booking booking, HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -33,36 +41,50 @@ public class BookingController {
         return "redirect:/";
     }
 
+    /*TEST:
+     * Skal kunne vise alle bookinger på bookingOversigt.html
+     * */
     @GetMapping("/bookingOversigt")
     public String bookingOversigt(Model model) throws SQLException {
         model.addAttribute("booking", Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking"));
         return "bookingOversigt";
     }
 
+    /*TEST:
+     * Skal kunne hente en enkel booking ud fra url
+     * */
     @GetMapping("/redigerBooking")
-    public String redigerBooking(@RequestParam(value = "id") int id, Model model) throws Exception{
+    public String redigerBooking(@RequestParam(value = "id") int id, Model model) throws Exception {
         model.addAttribute("booking", Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking WHERE idBooking = " + id).get(0));
         return "redigerBooking";
     }
 
+    /*TEST:
+     * Skal tage imod en Booking fra POST
+     * Skal redigere en booking
+     * Skal redirecte tilbage til bookingOversigt
+     * */
     @PostMapping("/redigerBooking")
-    public String redigerBooking(@ModelAttribute Booking booking) throws Exception{
+    public String redigerBooking(@ModelAttribute Booking booking) throws Exception {
         Booking.updateBooking(booking, false);
         return "redirect:/bookingOversigt";
     }
 
+    /*TEST:
+     * Skal kunne slette en booking ud fra ID
+     * */
     @GetMapping("/sletBooking")
-    public String sletBooking(@RequestParam(value = "id") int id, Model model) throws Exception{
+    public String sletBooking(@RequestParam(value = "id") int id, Model model) throws Exception {
         model.addAttribute("booking", Booking.loadBooking("SELECT idBooking, idBruger, Seats, idKunder, idVisning FROM Booking WHERE idBooking = " + id).get(0));
-       return "sletBooking";
+        return "sletBooking";
     }
 
+    /*Skal kunne slette en booking after en POST*/
     @PostMapping("/sletBooking")
-    public String sletBooking(@ModelAttribute Booking booking) throws Exception{
+    public String sletBooking(@ModelAttribute Booking booking) throws Exception {
         Booking.updateBooking(booking, true);
-        return"redirect:/bookingOversigt";
+        return "redirect:/bookingOversigt";
     }
-
 
 
 }

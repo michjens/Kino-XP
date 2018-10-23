@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Opret Slik</title>
-    <link rel="stylesheet" href="opretFilm.css">
+    <link rel="stylesheet" type="text/css" href="opretFilm.css"/>
 </head>
 <body>
 <div th:replace="/header"></div>
 
 <div class="film_oversigt">
     <div class="form">
-        <h2>Opret nyt guf</h2>
         <form method="post" th:action="@{/createConsumables}">
+            <h2>Opret nyt guf</h2>
             <label>Navn: </label>
             <input class="textInput" oninvalid="alert('Navn på guf skal indtastes!')" required title="Indtast navn" type="text"
                    th:field="${candy.navn}">

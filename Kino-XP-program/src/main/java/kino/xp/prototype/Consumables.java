@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Consumables {
 
+    int id;
     double pris;
     String navn;
     int antal;
@@ -23,6 +24,9 @@ public class Consumables {
 
     }
 
+    /*TEST:
+    * Skal kunne gemme consumables i databasen
+    * */
     public void gemGuf () {
 
         Connection con = dbConn.getInstance().createConnection();
@@ -42,6 +46,14 @@ public class Consumables {
         this.pris = pris;
         this.navn = navn;
         this.antal = antal;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public double getPris() {
@@ -68,6 +80,9 @@ public class Consumables {
         this.antal = antal;
     }
 
+    /*TEST:
+    * Skal kunne hente alle Consumables fra databasen
+    * */
     public static ArrayList<Consumables> loadConsumables(String SQLQuery) throws SQLException {
         ArrayList<Consumables> consumablesArrayList = new ArrayList<>();
 
